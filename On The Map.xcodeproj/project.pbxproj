@@ -14,6 +14,9 @@
 		F5F1195E1BB9882A001EC23F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F1195C1BB9882A001EC23F /* LaunchScreen.storyboard */; };
 		F5F119691BB9882A001EC23F /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119681BB9882A001EC23F /* On_The_MapTests.swift */; };
 		F5F119741BB9882A001EC23F /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119731BB9882A001EC23F /* On_The_MapUITests.swift */; };
+		F5F119831BB9A298001EC23F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */; settings = {ASSET_TAGS = (); }; };
+		F5F119861BB9A2A7001EC23F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
+		F5F119871BB9A2A7001EC23F /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		F5F1196F1BB9882A001EC23F /* On The MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F119731BB9882A001EC23F /* On_The_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapUITests.swift; sourceTree = "<group>"; };
 		F5F119751BB9882A001EC23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 				F5F1195A1BB9882A001EC23F /* Assets.xcassets */,
 				F5F1195C1BB9882A001EC23F /* LaunchScreen.storyboard */,
 				F5F1195F1BB9882A001EC23F /* Info.plist */,
+				F5F119811BB9A254001EC23F /* Resources */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -123,6 +130,16 @@
 				F5F119751BB9882A001EC23F /* Info.plist */,
 			);
 			path = "On The MapUITests";
+			sourceTree = "<group>";
+		};
+		F5F119811BB9A254001EC23F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */,
+				F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */,
+				F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +245,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5F119831BB9A298001EC23F /* Roboto-Medium.ttf in Resources */,
 				F5F1195E1BB9882A001EC23F /* LaunchScreen.storyboard in Resources */,
+				F5F119871BB9A2A7001EC23F /* Roboto-Thin.ttf in Resources */,
+				F5F119861BB9A2A7001EC23F /* Roboto-Regular.ttf in Resources */,
 				F5F1195B1BB9882A001EC23F /* Assets.xcassets in Resources */,
 				F5F119591BB9882A001EC23F /* Main.storyboard in Resources */,
 			);
@@ -481,6 +501,7 @@
 				F5F1197A1BB9882A001EC23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5F1197B1BB9882A001EC23F /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +510,7 @@
 				F5F1197D1BB9882A001EC23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5F1197E1BB9882A001EC23F /* Build configuration list for PBXNativeTarget "On The MapUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +519,7 @@
 				F5F119801BB9882A001EC23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
