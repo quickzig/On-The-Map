@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C2E1BBA375A00070B8F /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C301BBA3CD700070B8F /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5F119541BB9882A001EC23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119531BB9882A001EC23F /* AppDelegate.swift */; };
 		F5F119561BB9882A001EC23F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119551BB9882A001EC23F /* ViewController.swift */; };
 		F5F119591BB9882A001EC23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F119571BB9882A001EC23F /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F5441C2E1BBA375A00070B8F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = ../ListViewController.swift; sourceTree = "<group>"; };
+		F5441C301BBA3CD700070B8F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		F5F119501BB9882A001EC23F /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F119531BB9882A001EC23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5F119551BB9882A001EC23F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			children = (
 				F5F119531BB9882A001EC23F /* AppDelegate.swift */,
 				F5F119551BB9882A001EC23F /* ViewController.swift */,
+				F5441C2E1BBA375A00070B8F /* ListViewController.swift */,
+				F5441C301BBA3CD700070B8F /* MapViewController.swift */,
 				F5F119571BB9882A001EC23F /* Main.storyboard */,
 				F5F1195A1BB9882A001EC23F /* Assets.xcassets */,
 				F5F1195C1BB9882A001EC23F /* LaunchScreen.storyboard */,
@@ -277,6 +283,8 @@
 			files = (
 				F5F119561BB9882A001EC23F /* ViewController.swift in Sources */,
 				F5F119541BB9882A001EC23F /* AppDelegate.swift in Sources */,
+				F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */,
+				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
