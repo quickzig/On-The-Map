@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lqq-PS-gcA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fST-fg-Ayy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -7,12 +7,20 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Thin.ttf">
+            <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -412,7 +420,122 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hi3-3q-h1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436.5" y="488"/>
+            <point key="canvasLocation" x="445.5" y="316"/>
+        </scene>
+        <!--Info Posting View Controller-->
+        <scene sceneID="UDP-Gw-ZdU">
+            <objects>
+                <viewController id="fST-fg-Ayy" customClass="InfoPostingViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g6m-Qh-Edv"/>
+                        <viewControllerLayoutGuide type="bottom" id="r9g-cg-A1Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z4a-0c-7Hz">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezH-XC-qYg">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qY-rR-3d5">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="86" width="400" height="34"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY1-3u-f2I">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="121" width="400" height="33"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Placeholder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jF3-Yo-xhw">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" red="0.64313725490196083" green="0.72941176470588232" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                <edgeInsets key="layoutMargins" top="18" left="8" bottom="8" right="8"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="177" width="400" height="324"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kY1-3u-f2I" secondAttribute="trailing" id="5pB-vI-HrT"/>
+                            <constraint firstItem="kY1-3u-f2I" firstAttribute="top" secondItem="2qY-rR-3d5" secondAttribute="bottom" id="PbN-JE-e5b"/>
+                            <constraint firstAttribute="trailing" secondItem="2qY-rR-3d5" secondAttribute="trailing" id="X7E-OW-eEF"/>
+                            <constraint firstItem="ezH-XC-qYg" firstAttribute="top" secondItem="g6m-Qh-Edv" secondAttribute="bottom" constant="37" id="XR3-DQ-jZJ"/>
+                            <constraint firstItem="kY1-3u-f2I" firstAttribute="leading" secondItem="z4a-0c-7Hz" secondAttribute="leading" id="fvI-Ol-w9f"/>
+                            <constraint firstItem="ezH-XC-qYg" firstAttribute="leading" secondItem="z4a-0c-7Hz" secondAttribute="leading" id="hue-tF-Yfo"/>
+                            <constraint firstItem="2qY-rR-3d5" firstAttribute="leading" secondItem="z4a-0c-7Hz" secondAttribute="leading" id="i2e-HJ-fg3"/>
+                            <constraint firstItem="2qY-rR-3d5" firstAttribute="top" secondItem="ezH-XC-qYg" secondAttribute="bottom" id="iis-ZN-4j2"/>
+                            <constraint firstAttribute="trailing" secondItem="ezH-XC-qYg" secondAttribute="trailing" id="l1T-VP-5wf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ezH-XC-qYg"/>
+                                <exclude reference="2qY-rR-3d5"/>
+                                <exclude reference="kY1-3u-f2I"/>
+                                <exclude reference="jF3-Yo-xhw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="XR3-DQ-jZJ"/>
+                                <exclude reference="hue-tF-Yfo"/>
+                                <exclude reference="l1T-VP-5wf"/>
+                                <exclude reference="X7E-OW-eEF"/>
+                                <exclude reference="i2e-HJ-fg3"/>
+                                <exclude reference="iis-ZN-4j2"/>
+                                <exclude reference="5pB-vI-HrT"/>
+                                <exclude reference="PbN-JE-e5b"/>
+                                <exclude reference="fvI-Ol-w9f"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ezH-XC-qYg"/>
+                                <include reference="2qY-rR-3d5"/>
+                                <include reference="kY1-3u-f2I"/>
+                                <include reference="jF3-Yo-xhw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="XR3-DQ-jZJ"/>
+                                <include reference="hue-tF-Yfo"/>
+                                <include reference="l1T-VP-5wf"/>
+                                <include reference="X7E-OW-eEF"/>
+                                <include reference="i2e-HJ-fg3"/>
+                                <include reference="iis-ZN-4j2"/>
+                                <include reference="5pB-vI-HrT"/>
+                                <include reference="PbN-JE-e5b"/>
+                                <include reference="fvI-Ol-w9f"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uu4-el-aG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1935" y="337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5HD-LO-sZj">
+            <objects>
+                <viewController id="R3O-dh-CvX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iiC-Hk-XhO">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kcy-P7-Lej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
