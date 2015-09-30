@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Regular.ttf">
@@ -36,7 +37,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="116" y="292" width="170" height="27"/>
+                                    <rect key="frame" x="115" y="292" width="169.5" height="27"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wab-Nx-hYc">
@@ -256,33 +257,56 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o4G-UE-iK0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O00-sA-DPD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="On The Map" id="V1e-fk-J6s">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="6cM-2d-Hbh"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="refresh" id="Zxd-F9-00D"/>
+                                            <barButtonItem image="pin" id="rrS-NO-N3L"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="o4G-UE-iK0" firstAttribute="leading" secondItem="6op-fm-9CO" secondAttribute="leadingMargin" id="Ihj-6e-aMZ"/>
-                            <constraint firstItem="o4G-UE-iK0" firstAttribute="trailing" secondItem="6op-fm-9CO" secondAttribute="trailingMargin" id="SrR-t6-tji"/>
-                            <constraint firstItem="o4G-UE-iK0" firstAttribute="top" secondItem="B0n-9M-GZe" secondAttribute="bottom" id="wiV-Ag-XKA"/>
+                            <constraint firstItem="O00-sA-DPD" firstAttribute="leading" secondItem="6op-fm-9CO" secondAttribute="leading" id="16u-dD-5vF"/>
+                            <constraint firstAttribute="trailing" secondItem="o4G-UE-iK0" secondAttribute="trailing" id="6cH-3l-ZBC"/>
+                            <constraint firstAttribute="trailing" secondItem="O00-sA-DPD" secondAttribute="trailing" id="GB9-5G-oEm"/>
+                            <constraint firstItem="O00-sA-DPD" firstAttribute="top" secondItem="B0n-9M-GZe" secondAttribute="bottom" id="WCB-kV-R0O"/>
+                            <constraint firstItem="o4G-UE-iK0" firstAttribute="leading" secondItem="6op-fm-9CO" secondAttribute="leading" id="n9J-Ga-gSK"/>
+                            <constraint firstItem="o4G-UE-iK0" firstAttribute="top" secondItem="B0n-9M-GZe" secondAttribute="bottom" constant="44" id="wiV-Ag-XKA"/>
                             <constraint firstItem="lhe-it-Ywg" firstAttribute="top" secondItem="o4G-UE-iK0" secondAttribute="bottom" id="xm8-m0-ydt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="o4G-UE-iK0"/>
+                                <exclude reference="O00-sA-DPD"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="xm8-m0-ydt"/>
-                                <exclude reference="Ihj-6e-aMZ"/>
-                                <exclude reference="SrR-t6-tji"/>
+                                <exclude reference="16u-dD-5vF"/>
+                                <exclude reference="GB9-5G-oEm"/>
+                                <exclude reference="WCB-kV-R0O"/>
+                                <exclude reference="6cH-3l-ZBC"/>
+                                <exclude reference="n9J-Ga-gSK"/>
                                 <exclude reference="wiV-Ag-XKA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="o4G-UE-iK0"/>
+                                <include reference="O00-sA-DPD"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="xm8-m0-ydt"/>
-                                <include reference="Ihj-6e-aMZ"/>
-                                <include reference="SrR-t6-tji"/>
+                                <include reference="16u-dD-5vF"/>
+                                <include reference="GB9-5G-oEm"/>
+                                <include reference="WCB-kV-R0O"/>
+                                <include reference="6cH-3l-ZBC"/>
+                                <include reference="n9J-Ga-gSK"/>
                                 <include reference="wiV-Ag-XKA"/>
                             </mask>
                         </variation>
@@ -294,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edP-bn-xrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="809"/>
+            <point key="canvasLocation" x="1275" y="753"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5cw-Ge-lyg">
@@ -312,34 +336,57 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkF-fh-op4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="On The Map" id="K40-4H-HGD">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="FLT-Ll-sax"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="refresh" id="3sQ-ZA-8d3"/>
+                                            <barButtonItem image="pin" id="bQI-9G-1nH"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="d5c-kR-wkk" firstAttribute="top" secondItem="PNN-4t-S9n" secondAttribute="bottom" id="JE1-nh-ll6"/>
-                            <constraint firstItem="d5c-kR-wkk" firstAttribute="leading" secondItem="hwu-yy-aTN" secondAttribute="leadingMargin" id="RKL-rw-LWe"/>
-                            <constraint firstItem="Pzj-iK-OTh" firstAttribute="top" secondItem="d5c-kR-wkk" secondAttribute="bottom" constant="8" id="WCS-gq-Acc"/>
-                            <constraint firstItem="d5c-kR-wkk" firstAttribute="trailing" secondItem="hwu-yy-aTN" secondAttribute="trailingMargin" id="vg4-nh-KEa"/>
+                            <constraint firstItem="GkF-fh-op4" firstAttribute="top" secondItem="PNN-4t-S9n" secondAttribute="bottom" id="0W7-dE-9eh"/>
+                            <constraint firstItem="GkF-fh-op4" firstAttribute="leading" secondItem="hwu-yy-aTN" secondAttribute="leading" id="Ac8-Od-iNe"/>
+                            <constraint firstAttribute="trailing" secondItem="d5c-kR-wkk" secondAttribute="trailing" id="BfY-SZ-Wif"/>
+                            <constraint firstItem="d5c-kR-wkk" firstAttribute="top" secondItem="PNN-4t-S9n" secondAttribute="bottom" constant="44" id="MYT-u4-dnL"/>
+                            <constraint firstAttribute="trailing" secondItem="GkF-fh-op4" secondAttribute="trailing" id="Pc7-JO-A3z"/>
+                            <constraint firstItem="Pzj-iK-OTh" firstAttribute="top" secondItem="d5c-kR-wkk" secondAttribute="bottom" constant="20" id="WCS-gq-Acc"/>
+                            <constraint firstItem="d5c-kR-wkk" firstAttribute="leading" secondItem="hwu-yy-aTN" secondAttribute="leading" id="uPq-cc-B8e"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="d5c-kR-wkk"/>
+                                <exclude reference="GkF-fh-op4"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="WCS-gq-Acc"/>
-                                <exclude reference="JE1-nh-ll6"/>
-                                <exclude reference="RKL-rw-LWe"/>
-                                <exclude reference="vg4-nh-KEa"/>
+                                <exclude reference="0W7-dE-9eh"/>
+                                <exclude reference="Ac8-Od-iNe"/>
+                                <exclude reference="Pc7-JO-A3z"/>
+                                <exclude reference="BfY-SZ-Wif"/>
+                                <exclude reference="MYT-u4-dnL"/>
+                                <exclude reference="uPq-cc-B8e"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="d5c-kR-wkk"/>
+                                <include reference="GkF-fh-op4"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="WCS-gq-Acc"/>
-                                <include reference="JE1-nh-ll6"/>
-                                <include reference="RKL-rw-LWe"/>
-                                <include reference="vg4-nh-KEa"/>
+                                <include reference="0W7-dE-9eh"/>
+                                <include reference="Ac8-Od-iNe"/>
+                                <include reference="Pc7-JO-A3z"/>
+                                <include reference="BfY-SZ-Wif"/>
+                                <include reference="MYT-u4-dnL"/>
+                                <include reference="uPq-cc-B8e"/>
                             </mask>
                         </variation>
                     </view>
@@ -347,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0d-sT-P3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267.5" y="69"/>
+            <point key="canvasLocation" x="1258.5" y="98"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LYI-hq-Jtc">
@@ -371,6 +418,7 @@
     <resources>
         <image name="list" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
+        <image name="pin" width="32" height="32"/>
         <image name="udacity" width="256" height="256"/>
     </resources>
 </document>
