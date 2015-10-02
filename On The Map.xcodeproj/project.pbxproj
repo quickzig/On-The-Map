@@ -10,6 +10,10 @@
 		F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C2E1BBA375A00070B8F /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C301BBA3CD700070B8F /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F56C269F1BBEE7E2000FC577 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C269E1BBEE7E2000FC577 /* LocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F56C26A61BBEEB49000FC577 /* LocationBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A51BBEEB49000FC577 /* LocationBottomViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5F119541BB9882A001EC23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119531BB9882A001EC23F /* AppDelegate.swift */; };
 		F5F119561BB9882A001EC23F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F119551BB9882A001EC23F /* ViewController.swift */; };
 		F5F119591BB9882A001EC23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F119571BB9882A001EC23F /* Main.storyboard */; };
@@ -43,6 +47,10 @@
 		F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoPostingViewController.swift; path = ../InfoPostingViewController.swift; sourceTree = "<group>"; };
 		F5441C2E1BBA375A00070B8F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = ../ListViewController.swift; sourceTree = "<group>"; };
 		F5441C301BBA3CD700070B8F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		F56C269E1BBEE7E2000FC577 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationMiddleViewController.swift; sourceTree = "<group>"; };
+		F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTopViewController.swift; sourceTree = "<group>"; };
+		F56C26A51BBEEB49000FC577 /* LocationBottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationBottomViewController.swift; sourceTree = "<group>"; };
 		F5F119501BB9882A001EC23F /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F119531BB9882A001EC23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5F119551BB9882A001EC23F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +94,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F56C26991BBEE058000FC577 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F56C269C1BBEE767000FC577 /* Clients */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F56C269A1BBEE064000FC577 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F56C269B1BBEE06C000FC577 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F5F119551BB9882A001EC23F /* ViewController.swift */,
+				F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */,
+				F5441C301BBA3CD700070B8F /* MapViewController.swift */,
+				F5441C2E1BBA375A00070B8F /* ListViewController.swift */,
+				F56C26A01BBEEA77000FC577 /* Location */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F56C269C1BBEE767000FC577 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				F56C269D1BBEE76F000FC577 /* Udacity */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		F56C269D1BBEE76F000FC577 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Udacity;
+			sourceTree = "<group>";
+		};
+		F56C26A01BBEEA77000FC577 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F56C269E1BBEE7E2000FC577 /* LocationViewController.swift */,
+				F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */,
+				F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */,
+				F56C26A51BBEEB49000FC577 /* LocationBottomViewController.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		F5F119471BB98829001EC23F = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +171,12 @@
 			isa = PBXGroup;
 			children = (
 				F5F119531BB9882A001EC23F /* AppDelegate.swift */,
-				F5F119551BB9882A001EC23F /* ViewController.swift */,
-				F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */,
-				F5441C2E1BBA375A00070B8F /* ListViewController.swift */,
-				F5441C301BBA3CD700070B8F /* MapViewController.swift */,
+				F56C26991BBEE058000FC577 /* Model */,
+				F56C269A1BBEE064000FC577 /* View */,
+				F56C269B1BBEE06C000FC577 /* Controller */,
 				F5F119571BB9882A001EC23F /* Main.storyboard */,
-				F5F1195A1BB9882A001EC23F /* Assets.xcassets */,
 				F5F1195C1BB9882A001EC23F /* LaunchScreen.storyboard */,
+				F5F1195A1BB9882A001EC23F /* Assets.xcassets */,
 				F5F1195F1BB9882A001EC23F /* Info.plist */,
 				F5F119811BB9A254001EC23F /* Resources */,
 			);
@@ -287,8 +347,12 @@
 				F5F119561BB9882A001EC23F /* ViewController.swift in Sources */,
 				F5F119541BB9882A001EC23F /* AppDelegate.swift in Sources */,
 				F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */,
+				F56C269F1BBEE7E2000FC577 /* LocationViewController.swift in Sources */,
 				F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */,
+				F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */,
 				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,
+				F56C26A61BBEEB49000FC577 /* LocationBottomViewController.swift in Sources */,
+				F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

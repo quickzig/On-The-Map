@@ -581,7 +581,12 @@
         <scene sceneID="d5E-Qx-4sn">
             <objects>
                 <viewController id="JUT-T6-6E9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OhL-CL-EbC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vr8-S7-lCi"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EMg-pH-Avd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
