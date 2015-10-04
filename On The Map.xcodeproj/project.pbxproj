@@ -24,6 +24,8 @@
 		F5F119831BB9A298001EC23F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */; settings = {ASSET_TAGS = (); }; };
 		F5F119861BB9A2A7001EC23F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
 		F5F119871BB9A2A7001EC23F /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */; settings = {ASSET_TAGS = (); }; };
+		F5F9BA801BC19D94009097DB /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F9BA7F1BC19D94009097DB /* UdacityConstants.swift */; settings = {ASSET_TAGS = (); }; };
+		F5F9BA821BC19E32009097DB /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F9BA811BC19E32009097DB /* UdacityStudent.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		F5F9BA7F1BC19D94009097DB /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		F5F9BA811BC19E32009097DB /* UdacityStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 		F56C269D1BBEE76F000FC577 /* Udacity */ = {
 			isa = PBXGroup;
 			children = (
+				F5F9BA7F1BC19D94009097DB /* UdacityConstants.swift */,
+				F5F9BA811BC19E32009097DB /* UdacityStudent.swift */,
 			);
 			name = Udacity;
 			sourceTree = "<group>";
@@ -345,7 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5F119561BB9882A001EC23F /* ViewController.swift in Sources */,
+				F5F9BA801BC19D94009097DB /* UdacityConstants.swift in Sources */,
 				F5F119541BB9882A001EC23F /* AppDelegate.swift in Sources */,
+				F5F9BA821BC19E32009097DB /* UdacityStudent.swift in Sources */,
 				F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */,
 				F56C269F1BBEE7E2000FC577 /* LocationViewController.swift in Sources */,
 				F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */,
