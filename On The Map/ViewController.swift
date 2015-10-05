@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signUpClick(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.udacity.com/account/auth#!/signin")!)
         
     }
 
