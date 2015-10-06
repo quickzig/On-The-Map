@@ -14,7 +14,15 @@ extension UdacityStudent {
 
 
 
-func getSessionID(parameters: [String : AnyObject], completionHandler: (success: Bool, sessionID: String?, errorString: String?) -> Void) {
+func getSessionID(username: String, password: String, completionHandler: (success: Bool, sessionID: String?, errorString: String?) -> Void) {
+    
+    
+    let jsonBody : [String:AnyObject] = [
+        JSONBodyKeys.UdacityCredentials: [
+            JSONBodyKeys.Username : username,
+            JSONBodyKeys.Password : password
+        ]
+    ]
     
   //  /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
  //   let parameters = [TMDBClient.ParameterKeys.SessionID: TMDBClient.sharedInstance().sessionID!]
@@ -40,10 +48,9 @@ func getSessionID(parameters: [String : AnyObject], completionHandler: (success:
 //}
 }
 
-func authenticateWithViewController(parameters: [String : AnyObject], hostViewController: UIViewController, completionHandler: (success: Bool, errorString: String?) -> Void) {
+func authenticateStudentWithUdacity(username: String, password: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
     
-
-   self.getSessionID(parameters) { (success, sessionID, errorString) in
+    self.getSessionID(username, password: password) { (success, sessionID, errorString) in
         
         if success {
             
@@ -52,7 +59,7 @@ func authenticateWithViewController(parameters: [String : AnyObject], hostViewCo
             
             
             } else {
-            completionHandler(success: success, errorString: errorString)
+            //completionHandler(success: success, errorString: errorString)
             }
         }
     }

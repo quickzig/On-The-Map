@@ -25,22 +25,25 @@ class ViewController: UIViewController {
     
     
     @IBAction func loginClick(sender: AnyObject) {
-        let parameters = [String: AnyObject]()
+        if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
+           // self.displayErrorAlert(UdacityClient.Errors.EmptyEmailPass)
+        } else {
+         
         
-        UdacityStudent.sharedInstance().authenticateWithViewController(parameters, hostViewController: self) { (success, errorString) in
+        UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
             if success {
                 self.completeLogin()
             } else {
                 //self.displayError(errorString)
             }
         }
-        
+        }
         
     }
     
     
     @IBAction func signUpClick(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.udacity.com/account/auth#!/signin")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: UdacityStudent.Constants.SignupURL)!)
         
     }
     
