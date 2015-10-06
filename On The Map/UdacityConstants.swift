@@ -27,5 +27,15 @@ extension UdacityStudent {
         static let Password = "password"
         //static let FacebookMobileCredentials = "access_token"
     }
+    
+    struct JSONResponseKeys {
+        
+        // MARK: General
+        static let StatusMessage = "status_message"
+        static let StatusCode = "status_code"
+
+        static let SessionID = "session_id"
+      
+    }
 
 }

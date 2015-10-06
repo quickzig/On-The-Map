@@ -23,39 +23,50 @@ class UdacityStudent : NSObject {
     
     
     
-    func taskForPOSTMethod(method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPOSTMethod(method: String, jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
 
-        
-        
+
         let urlString = Constants.BaseURL + method
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            
-            if error != nil { // Handle error…
-                return
-            }
-       //     let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-        //    println(NSString(data: newData, encoding: NSUTF8StringEncoding))
-            
+        do {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(jsonBody, options: NSJSONWritingOptions())
         }
-        task.resume()
+        catch let error as NSError {
+            print("A JSON parsing error occurred, here are the details:\n \(error)")
+        }
         
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                completionHandler(result: nil, error: error)
+            } else {
+                if let data = data {
+                    UdacityStudent.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+                }
+            }
+        }
+        
+        task.resume()
         return task
         
     }
     
-    
-    
-    
-    
-    
+    class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
+        
+        var parsedResult: AnyObject!
+        do {
+            parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+        } catch {
+            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
+            completionHandler(result: nil, error: NSError(domain: "parseJSONWithCompletionHandler", code: 1, userInfo: userInfo))
+        }
+        
+        completionHandler(result: parsedResult, error: nil)
+    }
+
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
     class func escapedParameters(parameters: [String : AnyObject]) -> String {
         
@@ -71,20 +82,15 @@ class UdacityStudent : NSObject {
             
             /* Append it */
             urlVars += [key + "=" + "\(escapedValue!)"]
-            
         }
         
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
     
     class func sharedInstance() -> UdacityStudent {
-        
         struct Singleton {
             static var sharedInstance = UdacityStudent()
         }
-        
         return Singleton.sharedInstance
     }
-
-    
 }
