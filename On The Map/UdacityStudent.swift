@@ -15,9 +15,6 @@ class UdacityStudent : NSObject {
     
     /* Authentication state */
     var sessionID : String? = nil
-    
-    
-    
 
     override init() {
         session = NSURLSession.sharedSession()
@@ -40,6 +37,13 @@ class UdacityStudent : NSObject {
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error != nil { // Handle error…
+                return
+            }
+       //     let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+        //    println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            
         }
         task.resume()
         
@@ -71,6 +75,15 @@ class UdacityStudent : NSObject {
         }
         
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
+    }
+    
+    class func sharedInstance() -> UdacityStudent {
+        
+        struct Singleton {
+            static var sharedInstance = UdacityStudent()
+        }
+        
+        return Singleton.sharedInstance
     }
 
     
