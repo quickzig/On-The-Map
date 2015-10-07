@@ -30,11 +30,15 @@ extension UdacityStudent {
     
     struct JSONResponseKeys {
         
-        // MARK: General
+        // General
         static let StatusMessage = "status_message"
         static let StatusCode = "status_code"
 
-        static let SessionID = "session_id"
+        // Session
+        static let Session = "session"
+        static let SessionID = "id"
+        static let Account = "account"
+        static let UserKey = "key"
       
     }
 

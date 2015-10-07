@@ -15,6 +15,8 @@ class UdacityStudent : NSObject {
     
     /* Authentication state */
     var sessionID : String? = nil
+    var user  = UdacityUser()
+    
 
     override init() {
         session = NSURLSession.sharedSession()
@@ -39,14 +41,34 @@ class UdacityStudent : NSObject {
             print("A JSON parsing error occurred, here are the details:\n \(error)")
         }
         
-        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
-            if let error = downloadError {
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
                 completionHandler(result: nil, error: error)
-            } else {
-                if let data = data {
-                    UdacityStudent.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
-                }
+                return
             }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var errorMessage: String
+                if let response = response as? NSHTTPURLResponse {
+                    errorMessage = "Your request returned an invalid response! Status code: \(response.statusCode)!"
+                } else if let response = response {
+                    errorMessage = "Your request returned an invalid response! Response: \(response)!"
+                } else {
+                    errorMessage = "Your request returned an invalid response!"
+                }
+                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                return
+            }
+                
+                if let data = data {
+                    
+                    let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+                    print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+                    UdacityStudent.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+                }
+            
+            
         }
         
         task.resume()
