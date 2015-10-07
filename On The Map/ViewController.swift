@@ -48,8 +48,14 @@ class ViewController: UIViewController {
     }
     
     func completeLogin() {
-    
+        goToListView()
     }
    
-
+    
+    func goToListView() {
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
+    }
 }

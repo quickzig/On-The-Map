@@ -6,64 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/UdacityConvenience.swift"
-            timestampString = "465872658.177063"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "authenticateStudentWithUdacity(_:password:completionHandler:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "On_The_Map.UdacityStudent.authenticateStudentWithUdacity (On_The_Map.UdacityStudent)(Swift.String, password : Swift.String, completionHandler : (success : Swift.Bool, error : Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "On The Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brianquick/Downloads/On-The-Map/On%20The%20Map/UdacityConvenience.swift"
-                  timestampString = "465872658.181601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "69">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "On_The_Map.UdacityStudent.(authenticateStudentWithUdacity (On_The_Map.UdacityStudent) -&gt; (Swift.String, password : Swift.String, completionHandler : (success : Swift.Bool, error : Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "On The Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brianquick/Downloads/On-The-Map/On%20The%20Map/UdacityConvenience.swift"
-                  timestampString = "465872658.181824"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "67">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/UdacityConvenience.swift"
-            timestampString = "465872725.764586"
+            filePath = "On The Map/ViewController.swift"
+            timestampString = "465939081.654512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "authenticateStudentWithUdacity(_:password:completionHandler:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "goToListView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
