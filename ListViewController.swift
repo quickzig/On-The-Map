@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ListViewController: UITableViewController {
+class ListViewController:  UIViewController {
 
 
     override func viewDidLoad() {

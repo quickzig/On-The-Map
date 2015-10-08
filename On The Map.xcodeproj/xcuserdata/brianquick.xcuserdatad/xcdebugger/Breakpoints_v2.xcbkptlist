@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "On The Map/ViewController.swift"
-            timestampString = "465939081.654512"
+            timestampString = "466030563.061356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "goToListView()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "displayError(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             if success {
                 self.completeLogin()
             } else {
-                //self.displayError(errorString)
+                self.displayError()
             }
         }
         }
@@ -51,10 +51,16 @@ class ViewController: UIViewController {
         goToListView()
     }
    
+    func displayError()
+    {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Login Failed", message: "Unable to log in. Please check credentials or verify that you are connected to the internet", preferredStyle: .Alert)
+        
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     
     func goToListView() {
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
