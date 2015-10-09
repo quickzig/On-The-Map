@@ -28,7 +28,7 @@ extension UdacityStudent {
             if let error = error {
                 print(error)
                 
-                completionHandler(success: false,errorString: error.description)
+                completionHandler(success: false, errorString: error.description)
             } else {
                 
                 //Get account key info

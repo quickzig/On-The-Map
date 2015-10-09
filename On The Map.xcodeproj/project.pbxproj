@@ -10,6 +10,7 @@
 		F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C2E1BBA375A00070B8F /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C301BBA3CD700070B8F /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F56471831BC81A8D00BE0A97 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F56471821BC81A8D00BE0A97 /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
 		F56C269F1BBEE7E2000FC577 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C269E1BBEE7E2000FC577 /* LocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +52,9 @@
 		F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoPostingViewController.swift; path = ../InfoPostingViewController.swift; sourceTree = "<group>"; };
 		F5441C2E1BBA375A00070B8F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = ../ListViewController.swift; sourceTree = "<group>"; };
 		F5441C301BBA3CD700070B8F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		F56471801BC81A8C00BE0A97 /* On The Map-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "On The Map-Bridging-Header.h"; sourceTree = "<group>"; };
+		F56471811BC81A8D00BE0A97 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F56471821BC81A8D00BE0A97 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		F56C269E1BBEE7E2000FC577 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationMiddleViewController.swift; sourceTree = "<group>"; };
 		F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTopViewController.swift; sourceTree = "<group>"; };
@@ -216,9 +220,12 @@
 		F5F119811BB9A254001EC23F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F56471811BC81A8D00BE0A97 /* Reachability.h */,
+				F56471821BC81A8D00BE0A97 /* Reachability.m */,
 				F5F119841BB9A2A7001EC23F /* Roboto-Regular.ttf */,
 				F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */,
 				F5F119821BB9A298001EC23F /* Roboto-Medium.ttf */,
+				F56471801BC81A8C00BE0A97 /* On The Map-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 		F5F119481BB98829001EC23F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Brian Quick";
 				TargetAttributes = {
@@ -366,6 +374,7 @@
 				F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */,
 				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,
 				F56C26A61BBEEB49000FC577 /* LocationBottomViewController.swift in Sources */,
+				F56471831BC81A8D00BE0A97 /* Reachability.m in Sources */,
 				F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */,
 				F5F04BC31BC35BE9003D3B2F /* UdacityConvenience.swift in Sources */,
 				F5AE4A781BC4A3BF00472BF5 /* UdacityUser.swift in Sources */,
@@ -508,10 +517,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brianq.On-The-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "On The Map/On The Map-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -519,10 +531,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brianq.On-The-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "On The Map/On The Map-Bridging-Header.h";
 			};
 			name = Release;
 		};

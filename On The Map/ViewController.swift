@@ -26,17 +26,22 @@ class ViewController: UIViewController {
     
     @IBAction func loginClick(sender: AnyObject) {
         if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
+            self.displayError("Missing Login info", error: "Make sure the email and password fields are filled out.")
            // self.displayErrorAlert(UdacityClient.Errors.EmptyEmailPass)
         } else {
          
-        
-        UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
-            if success {
-                self.completeLogin()
-            } else {
-                self.displayError(errorString)
+            if self.hasConnectivity() == false {
+                self.displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
             }
-        }
+            else {
+                UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
+                if success {
+                    self.completeLogin()
+                } else {
+                    self.displayError("Login Failed", error: "Unable to log into Udacity")
+                    }
+                }
+            }
         }
         
     }
@@ -51,11 +56,11 @@ class ViewController: UIViewController {
         goToListView()
     }
    
-    func displayError(error: String!)
+    func displayError(title: String!, error: String!)
     {
         dispatch_async(dispatch_get_main_queue(), {
 
-        let alertController: UIAlertController = UIAlertController(title: "Login Failed", message: error, preferredStyle: .Alert)
+        let alertController: UIAlertController = UIAlertController(title: title, message: error, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             }
             alertController.addAction(OKAction)
@@ -72,4 +77,12 @@ class ViewController: UIViewController {
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
+    
+     func hasConnectivity() -> Bool {
+        let reachability: Reachability = Reachability.reachabilityForInternetConnection()
+        let networkStatus: Int = reachability.currentReachabilityStatus().rawValue
+        return networkStatus != 0
+    }
+    
+  
 }
