@@ -53,10 +53,18 @@ class ViewController: UIViewController {
    
     func displayError()
     {
-        let actionSheetController: UIAlertController = UIAlertController(title: "Login Failed", message: "Unable to log in. Please check credentials or verify that you are connected to the internet", preferredStyle: .Alert)
-        
-        self.presentViewController(actionSheetController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+
+        let alertController: UIAlertController = UIAlertController(title: "Login Failed", message: "Unable to log in. Please check credentials or verify that you are connected to the internet", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        })
     }
+    
+    
     
     func goToListView() {
         dispatch_async(dispatch_get_main_queue(), {

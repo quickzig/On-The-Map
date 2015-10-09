@@ -59,19 +59,24 @@ extension UdacityStudent {
                 {
                     completionHandler(success: false, errorString: "Login Failed (Session ID).")
                 }
-                
-                
-                
-                
+      
             }
             
         }
         
     }
-        func authenticateStudentWithUdacity(username: String, password: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        func authenticateStudentWithUdacity(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
             
             self.getSessionID(username, password: password) { (success, errorString) in
-                completionHandler(success: true,  error: nil)
+                if let error = errorString {
+                    print(error)
+                    completionHandler(success: false, errorString: "Login Failed (Session ID).")
+                } else {
+                
+                        completionHandler(success: true,  errorString: nil)
+                }
+                
+                
                            }
         }
     
