@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             if success {
                 self.completeLogin()
             } else {
-                self.displayError()
+                self.displayError(errorString)
             }
         }
         }
@@ -51,11 +51,11 @@ class ViewController: UIViewController {
         goToListView()
     }
    
-    func displayError()
+    func displayError(error: String!)
     {
         dispatch_async(dispatch_get_main_queue(), {
 
-        let alertController: UIAlertController = UIAlertController(title: "Login Failed", message: "Unable to log in. Please check credentials or verify that you are connected to the internet", preferredStyle: .Alert)
+        let alertController: UIAlertController = UIAlertController(title: "Login Failed", message: error, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             }
             alertController.addAction(OKAction)

@@ -27,7 +27,8 @@ extension UdacityStudent {
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
                 print(error)
-                completionHandler(success: false,errorString: "Login Failed (Session ID).")
+                
+                completionHandler(success: false,errorString: error.description)
             } else {
                 
                 //Get account key info
@@ -57,7 +58,7 @@ extension UdacityStudent {
                     completionHandler(success: true,  errorString: nil)
                 } else
                 {
-                    completionHandler(success: false, errorString: "Login Failed (Session ID).")
+                    completionHandler(success: false, errorString: "Invalid credentials")
                 }
       
             }
@@ -70,7 +71,7 @@ extension UdacityStudent {
             self.getSessionID(username, password: password) { (success, errorString) in
                 if let error = errorString {
                     print(error)
-                    completionHandler(success: false, errorString: "Login Failed (Session ID).")
+                    completionHandler(success: false, errorString: errorString)
                 } else {
                 
                         completionHandler(success: true,  errorString: nil)
