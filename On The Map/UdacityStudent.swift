@@ -27,7 +27,6 @@ class UdacityStudent : NSObject {
     
     func taskForPOSTMethod(method: String, jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
 
-
         let urlString = Constants.BaseURL + method
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
@@ -75,6 +74,7 @@ class UdacityStudent : NSObject {
         return task
         
     }
+    
     
     class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
         

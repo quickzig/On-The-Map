@@ -13,12 +13,14 @@ extension UdacityStudent {
     
         static let BaseURL : String = "https://www.udacity.com/api/"
         static let SignupURL : String = "https://www.udacity.com/account/auth#!/signin"
+               
     }
 
     struct Methods {
         
         // MARK: Account
         static let Session = "session"
+        static let StudentLocation = "StudentLocation"
     }
     
     struct JSONBodyKeys {
