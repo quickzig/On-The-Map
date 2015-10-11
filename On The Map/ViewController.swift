@@ -25,22 +25,24 @@ class ViewController: UIViewController {
     
     
     @IBAction func loginClick(sender: AnyObject) {
-        if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
-            self.displayError("Missing Login info", error: "Make sure the email and password fields are filled out.")
-           // self.displayErrorAlert(UdacityClient.Errors.EmptyEmailPass)
-        } else {
-         
-            if self.hasConnectivity() == false {
-                self.displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
-            }
-            else {
-                UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
-                if success {
-                    self.completeLogin()
-                } else {
-                    self.displayError("Login Failed", error: "Unable to log into Udacity")
-                    }
-                }
+        
+        guard self.emailText.text!.characters.count > 0 || self.passwordText.text!.characters.count > 0 else
+        {
+            displayError("Missing Login info", error: "Make sure the email and password fields are filled out.")
+            return
+        }
+        
+        guard hasConnectivity() == true else
+        {
+            displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
+            return
+        }
+        
+        UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
+            if success {
+                self.completeLogin()
+            } else {
+                self.displayError("Login Failed", error: "Unable to log into Udacity")
             }
         }
         

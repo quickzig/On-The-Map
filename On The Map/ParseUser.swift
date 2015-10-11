@@ -19,9 +19,9 @@ class ParseUser : NSObject {
 
     
     
-    func taskForGETMethod(className: String, queryString: String?, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+  //  func taskForGETMethod(className: String, queryString: String?, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-    }
+  //  }
     
     
     
