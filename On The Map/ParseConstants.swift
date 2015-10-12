@@ -19,5 +19,13 @@ extension ParseUser {
 
     
     }
+    
+    struct ParameterKeys {
+        
+        static let ApiKey = "X-Parse-REST-API-Key"
+        static let Applicationid = "X-Parse-Application-Id"
+
+    }
+
 
 }
