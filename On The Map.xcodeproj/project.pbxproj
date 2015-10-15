@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52FFBBB1BCFFCF3006C1C55 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52FFBBA1BCFFCF3006C1C55 /* MainTabBarViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C2F1BBA375A00070B8F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C2E1BBA375A00070B8F /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441C301BBA3CD700070B8F /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F52FFBBA1BCFFCF3006C1C55 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoPostingViewController.swift; path = ../InfoPostingViewController.swift; sourceTree = "<group>"; };
 		F5441C2E1BBA375A00070B8F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = ../ListViewController.swift; sourceTree = "<group>"; };
 		F5441C301BBA3CD700070B8F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				F5F119551BB9882A001EC23F /* ViewController.swift */,
 				F54006A61BBC371F009DBAB7 /* InfoPostingViewController.swift */,
+				F52FFBBA1BCFFCF3006C1C55 /* MainTabBarViewController.swift */,
 				F5441C301BBA3CD700070B8F /* MapViewController.swift */,
 				F5441C2E1BBA375A00070B8F /* ListViewController.swift */,
 				F56C26A01BBEEA77000FC577 /* Location */,
@@ -397,6 +400,7 @@
 				F5C698D31BCAE10200FC69E6 /* ParseConvenience.swift in Sources */,
 				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,
 				F5C698D51BCAE9A600FC69E6 /* ParseStudentLocation.swift in Sources */,
+				F52FFBBB1BCFFCF3006C1C55 /* MainTabBarViewController.swift in Sources */,
 				F56C26A61BBEEB49000FC577 /* LocationBottomViewController.swift in Sources */,
 				F56471831BC81A8D00BE0A97 /* Reachability.m in Sources */,
 				F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */,
