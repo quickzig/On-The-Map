@@ -42,6 +42,7 @@ class MainTabBarViewController: UITabBarController {
        // FacebookClient.sharedLoginManager().logOut()
       //  UdacityClient.sharedInstance().logout { (success, error) -> Void in
       //  }
+       
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
