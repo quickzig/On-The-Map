@@ -22,15 +22,6 @@ extension ParseUser {
     
     }
     
-<<<<<<< HEAD
-    struct ParameterKeys {
-        
-        static let ApiKey = "X-Parse-REST-API-Key"
-        static let Applicationid = "X-Parse-Application-Id"
-
-    }
-
-=======
     struct Methods {
         
         // MARK: Account
@@ -70,6 +61,5 @@ extension ParseUser {
         static let StudentLocationsError = "StudentLocations.Error"
         
     }
->>>>>>> origin/master
 
 }
