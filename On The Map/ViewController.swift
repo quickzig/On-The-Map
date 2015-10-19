@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,7 +76,7 @@ class ViewController: UIViewController {
     
     func goToListView() {
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController")
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }

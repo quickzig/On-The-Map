@@ -10,23 +10,26 @@ import Foundation
 
 extension ParseUser {
 
-  //  var user = ParseUser()
     
-//
-//func getStudentLocations(completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
+func getStudentLocations(completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
+    
+    let parameters: [String: AnyObject] = [ParseUser.ParameterKeys.Limit : ParseUser.Constants.Limit, ParseUser.ParameterKeys.Order: ParseUser.Constants.RecentlyUpdated]
+    
+    taskForGETMethod(Methods.StudentLocation, queryString: nil, parameters: parameters) { JSONResult, error in
         
-  //      let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
- //       request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
- //       request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
- //       let session = NSURLSession.sharedSession()
-//        let task = session.dataTaskWithRequest(request) { data, response, error in
-//            if error != nil { // Handle error...
-//                return
-//            }
- //     //      print(NSString(data: data, encoding: NSUTF8StringEncoding))
-//        }
-//        task.resume()
-//    }
+        if let error = error {
+            completionHandler(result: nil, error: error)
+        } else {
+            
+            if let results = JSONResult.valueForKey(JSONResponseKeys.Results) as? [[String: AnyObject]] {
+                    let studentLocations = ParseStudentLocation.studentLocationsFromResults(results)
+                     completionHandler(result: studentLocations, error: nil)
+                 } else {
+                     completionHandler(result: nil, error: NSError(domain: Methods.StudentLocation, code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not get student locations"]))
+        }
+    }
     
-    
+    // completionHandler(result: nil,error: nil)
+    }
+    }
 }

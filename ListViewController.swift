@@ -9,12 +9,65 @@
 import UIKit
 
 
-class ListViewController:  UIViewController {
+class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var studentLocations: [ParseStudentLocation] = [ParseStudentLocation]()
 
+    
+    @IBOutlet weak var studentsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.studentsTableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0);
+        
+        studentsTableView.dataSource = self
+        studentsTableView.delegate = self
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
+            if let studentLocations = studentLocations {
+                self.studentLocations = studentLocations
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    self.studentsTableView.reloadData()
+                }
+            }
+        }
+        
+    }
+
+    
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        /* Get cell type */
+        let cellReuseIdentifier = "StudentLocationCell"
+        //let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
+        
+        let student = self.studentLocations[indexPath.row]
+        cell.textLabel!.text =  "\(student.firstName as String!) \(student.lastName as String!)"
+        cell.imageView!.image = UIImage(named: "pin")
+        cell.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return studentLocations.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let url = self.studentLocations[indexPath.row].mediaURL
+        let app = UIApplication.sharedApplication()
+        app.openURL(NSURL(string: url)!)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
+    }
+
 
 }

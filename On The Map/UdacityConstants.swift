@@ -21,6 +21,7 @@ extension UdacityStudent {
         // MARK: Account
         static let Session = "session"
         static let StudentLocation = "StudentLocation"
+        
     }
     
     struct JSONBodyKeys {

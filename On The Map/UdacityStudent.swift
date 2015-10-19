@@ -75,6 +75,55 @@ class UdacityStudent : NSObject {
         
     }
     
+    func taskForDeleteMethod(method: String, completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    
+        let urlString = Constants.BaseURL + method
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie : NSHTTPCookie? = nil
+        
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name   == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            guard (error == nil) else {
+                completionHandler(result: nil, error: error)
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var errorMessage: String
+                if let response = response as? NSHTTPURLResponse {
+                    errorMessage = "Your request returned an invalid response! Status code: \(response.statusCode)!"
+                } else if let response = response {
+                    errorMessage = "Your request returned an invalid response! Response: \(response)!"
+                } else {
+                    errorMessage = "Your request returned an invalid response!"
+                }
+                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                return
+            }
+
+            if let data = data {
+                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+                print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+                UdacityStudent.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+            }
+            
+        }
+        task.resume()
+        return task
+    }
+    
+    
+    
     
     class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
         
