@@ -349,7 +349,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1H0-2L-07c" id="zJq-Dd-MWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -537,6 +537,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="85" y="41" width="262" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="findOnMapButtonClick:" destination="fST-fg-Ayy" eventType="touchUpInside" id="A5I-Fv-0VG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -571,10 +574,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="findOnMapButton" destination="m6w-an-OK3" id="f9d-e2-ff6"/>
+                        <outlet property="locationText" destination="36T-06-2nW" id="E28-aU-XnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uu4-el-aG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2464.5" y="682"/>
+            <point key="canvasLocation" x="2575.5" y="524"/>
         </scene>
     </scenes>
     <resources>
