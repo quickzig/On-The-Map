@@ -34,14 +34,9 @@ extension ParseUser {
     }
     
     
-    func postStudentLocations(completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
+    func postStudentLocations(jsonBody: [String:AnyObject], completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
         
-        let jsonBody : [String:AnyObject] = [
-            JSONBodyKeys.UdacityCredentials: [
-                JSONBodyKeys.Username : username,
-                JSONBodyKeys.Password : password
-            ]
-        ]
+       
 
         
         taskForPOSTMethod(Methods.StudentLocation, jsonBody: jsonBody) { JSONResult, error in

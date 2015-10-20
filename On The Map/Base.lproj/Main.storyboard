@@ -349,7 +349,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1H0-2L-07c" id="zJq-Dd-MWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -444,18 +444,27 @@
                                             <rect key="frame" x="8" y="0.0" width="397" height="322"/>
                                         </variation>
                                     </textView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-wI-Spz">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="405" height="316"/>
+                                        </variation>
+                                    </mapView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.64313725489999995" green="0.72941176470000002" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="36T-06-2nW"/>
+                                        <exclude reference="bkh-wI-Spz"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="-5" y="174" width="405" height="316"/>
                                     <mask key="subviews">
                                         <include reference="36T-06-2nW"/>
+                                        <include reference="bkh-wI-Spz"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -576,6 +585,7 @@
                     </view>
                     <connections>
                         <outlet property="findOnMapButton" destination="m6w-an-OK3" id="f9d-e2-ff6"/>
+                        <outlet property="locationMapView" destination="bkh-wI-Spz" id="tAX-LA-7LL"/>
                         <outlet property="locationText" destination="36T-06-2nW" id="E28-aU-XnF"/>
                     </connections>
                 </viewController>
