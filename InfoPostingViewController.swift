@@ -17,7 +17,18 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var locationText: UITextView!
     @IBOutlet weak var findOnMapButton: UIButton!
     @IBOutlet weak var locationMapView: MKMapView!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var mediaText: UITextView!
+    
+    @IBOutlet weak var whereLabel: UILabel!
+    @IBOutlet weak var studyingLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
    
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var middleView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    
     @IBAction func cancelButtonClick(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -54,9 +65,12 @@ class InfoPostingViewController: UIViewController {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinates
                       annotations.append(annotation)
-                    self.locationMapView.hidden = false
+                    self.showMap()
 
                      self.locationMapView.addAnnotations(annotations)
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(coordinates, 2000, 2000)
+                    self.locationMapView.setRegion(region, animated: true)
 
                 }
             })
@@ -72,7 +86,7 @@ class InfoPostingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.locationMapView.hidden = true
+        hideMap()
     }
     
     func displayError(title: String!, error: String!)
@@ -86,6 +100,48 @@ class InfoPostingViewController: UIViewController {
             
             self.presentViewController(alertController, animated: true, completion: nil)
         })
+    }
+    
+    func showMap() {
+        self.locationMapView.hidden = false
+       
+        self.whereLabel.alpha = 0
+        self.studyingLabel.alpha = 0
+        self.todayLabel.alpha = 0
+        
+        self.middleView.hidden = true
+       
+        
+        self.locationMapView.alpha = 1
+        self.findOnMapButton.alpha = 0
+        self.submitButton.alpha = 1
+        
+     
+         self.bottomView.backgroundColor = UIColor.clearColor()
+         self.topView.backgroundColor = UIColor(red: 0.310, green: 0.533, blue: 0.713, alpha: 1.0)
+        self.cancelButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
+        
+       self.mediaText.hidden = false
+        
+    }
+    
+    func hideMap(){
+        self.locationMapView.hidden = true
+        
+        self.whereLabel.alpha = 1
+        self.studyingLabel.alpha = 1
+        self.todayLabel.alpha = 1
+       
+        middleView.hidden = false
+        //bottomView.hidden = false
+        
+        self.locationMapView.alpha = 0
+        self.findOnMapButton.alpha = 1
+        self.submitButton.alpha = 0
+       
+         self.bottomView.backgroundColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1.0)
+        self.topView.backgroundColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1.0)
+        self.mediaText.hidden = true
     }
 
     

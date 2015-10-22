@@ -18,6 +18,8 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -349,7 +351,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1H0-2L-07c" id="zJq-Dd-MWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -432,6 +434,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-wI-Spz">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-3" y="174" width="405" height="426"/>
+                                </variation>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXJ-QP-8Ll" userLabel="Middle View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -444,27 +453,18 @@
                                             <rect key="frame" x="8" y="0.0" width="397" height="322"/>
                                         </variation>
                                     </textView>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-wI-Spz">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <animations/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="405" height="316"/>
-                                        </variation>
-                                    </mapView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.72941176470000002" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30980392156862746" green="0.53333333333333333" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="36T-06-2nW"/>
-                                        <exclude reference="bkh-wI-Spz"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="-5" y="174" width="405" height="316"/>
                                     <mask key="subviews">
                                         <include reference="36T-06-2nW"/>
-                                        <include reference="bkh-wI-Spz"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -474,7 +474,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qY-rR-3d5">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -484,7 +484,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY1-3u-f2I">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -494,7 +494,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezH-XC-qYg">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -513,6 +513,16 @@
                                             <action selector="cancelButtonClick:" destination="fST-fg-Ayy" eventType="touchUpInside" id="HcO-bx-cdd"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a Link to Share Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5t7-LA-OJp">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="44" width="384" height="123"/>
+                                        </variation>
+                                    </textView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -522,6 +532,7 @@
                                         <exclude reference="kY1-3u-f2I"/>
                                         <exclude reference="ezH-XC-qYg"/>
                                         <exclude reference="9K2-Pb-Vtv"/>
+                                        <exclude reference="5t7-LA-OJp"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -531,6 +542,7 @@
                                         <include reference="kY1-3u-f2I"/>
                                         <include reference="ezH-XC-qYg"/>
                                         <include reference="9K2-Pb-Vtv"/>
+                                        <include reference="5t7-LA-OJp"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -550,18 +562,30 @@
                                             <action selector="findOnMapButtonClick:" destination="fST-fg-Ayy" eventType="touchUpInside" id="A5I-Fv-0VG"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-Nz-p0O">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                        <state key="normal" title="Submit"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="151" y="41" width="109" height="30"/>
+                                        </variation>
+                                    </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="m6w-an-OK3"/>
+                                        <exclude reference="AOg-Nz-p0O"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="489" width="400" height="111"/>
                                     <mask key="subviews">
                                         <include reference="m6w-an-OK3"/>
+                                        <include reference="AOg-Nz-p0O"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -570,6 +594,7 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="bkh-wI-Spz"/>
                                 <exclude reference="zXJ-QP-8Ll"/>
                                 <exclude reference="TBv-6a-FE7"/>
                                 <exclude reference="7rM-E8-NwT"/>
@@ -577,6 +602,7 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="bkh-wI-Spz"/>
                                 <include reference="zXJ-QP-8Ll"/>
                                 <include reference="TBv-6a-FE7"/>
                                 <include reference="7rM-E8-NwT"/>
@@ -584,9 +610,18 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="7rM-E8-NwT" id="s7z-uH-vyE"/>
+                        <outlet property="cancelButton" destination="9K2-Pb-Vtv" id="J7A-Ww-OaE"/>
                         <outlet property="findOnMapButton" destination="m6w-an-OK3" id="f9d-e2-ff6"/>
                         <outlet property="locationMapView" destination="bkh-wI-Spz" id="tAX-LA-7LL"/>
                         <outlet property="locationText" destination="36T-06-2nW" id="E28-aU-XnF"/>
+                        <outlet property="mediaText" destination="5t7-LA-OJp" id="6UP-MW-hBD"/>
+                        <outlet property="middleView" destination="zXJ-QP-8Ll" id="mDI-D8-ZfO"/>
+                        <outlet property="studyingLabel" destination="2qY-rR-3d5" id="fjB-N6-T5H"/>
+                        <outlet property="submitButton" destination="AOg-Nz-p0O" id="QVK-ua-SrY"/>
+                        <outlet property="todayLabel" destination="kY1-3u-f2I" id="7an-56-EiE"/>
+                        <outlet property="topView" destination="TBv-6a-FE7" id="miP-wJ-EP8"/>
+                        <outlet property="whereLabel" destination="ezH-XC-qYg" id="Kzj-9m-EA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uu4-el-aG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
