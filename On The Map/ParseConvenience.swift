@@ -28,30 +28,19 @@ extension ParseUser {
                     completionHandler(result: nil, error: NSError(domain: Methods.StudentLocation, code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not get student locations"]))
                 }
             }
-            
             // completionHandler(result: nil,error: nil)
         }
     }
     
     
-    func postStudentLocations(jsonBody: [String:AnyObject], completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
-        
-        
+    func postStudentLocation(jsonBody: [String:AnyObject], completionHandler: (success: Bool , error: NSError?) -> Void){
         taskForPOSTMethod(Methods.StudentLocation, jsonBody: jsonBody) { JSONResult, error in
             
             if let error = error {
-                completionHandler(result: nil, error: error)
+                completionHandler(success: false, error: error)
             } else {
-                
-                if let results = JSONResult.valueForKey(JSONResponseKeys.Results) as? [[String: AnyObject]] {
-                    let studentLocations = ParseStudentLocation.studentLocationsFromResults(results)
-                    completionHandler(result: studentLocations, error: nil)
-                } else {
-                    completionHandler(result: nil, error: NSError(domain: Methods.StudentLocation, code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not get student locations"]))
-                }
+                completionHandler(success: true, error: nil)
             }
-            
-            // completionHandler(result: nil,error: nil)
         }
     }
 

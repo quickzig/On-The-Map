@@ -68,8 +68,9 @@ class ParseUser : NSObject {
     
     
     func taskForPOSTMethod(method: String, jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        let user  = UdacityUser()
+        let urlString = Constants.ParseURL + method + "/\(user.userKey)"
         
-        let urlString = Constants.ParseURL + method
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"

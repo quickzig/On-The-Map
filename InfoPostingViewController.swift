@@ -50,6 +50,23 @@ class InfoPostingViewController: UIViewController {
             ParseUser.JSONResponseKeys.StudentLocationUniqueKey: UdacityStudent.sharedInstance().user.userKey!
         ]
         
+    
+            ParseUser.sharedInstance().postStudentLocation(jsonBody) { success, error in
+                guard (success == true) else {
+                
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+               
+        }
+        
+    
+    
+    
+        
+        
     }
     
     @IBAction func findOnMapButtonClick(sender: UIButton) {
@@ -123,24 +140,24 @@ class InfoPostingViewController: UIViewController {
     
     func showMap() {
         self.locationMapView.hidden = false
-       
+        
         self.whereLabel.alpha = 0
         self.studyingLabel.alpha = 0
         self.todayLabel.alpha = 0
         
         self.middleView.hidden = true
-       
+        
         
         self.locationMapView.alpha = 1
         self.findOnMapButton.alpha = 0
         self.submitButton.alpha = 1
         
-     
-         self.bottomView.backgroundColor = UIColor.clearColor()
-         self.topView.backgroundColor = UIColor(red: 0.310, green: 0.533, blue: 0.713, alpha: 1.0)
+        
+        self.bottomView.backgroundColor = UIColor.clearColor()
+        self.topView.backgroundColor = UIColor(red: 0.310, green: 0.533, blue: 0.713, alpha: 1.0)
         self.cancelButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
         
-       self.mediaText.hidden = false
+        self.mediaText.hidden = false
         
     }
     
