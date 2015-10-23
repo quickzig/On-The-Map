@@ -56,16 +56,20 @@ class UdacityStudent : NSObject {
                 } else {
                     errorMessage = "Your request returned an invalid response!"
                 }
-                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                completionHandler(result: nil, error: NSError(domain: "UdacityStudent.taskForPOSTMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
                 
-                if let data = data {
-                    
-                    let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-                    print(NSString(data: newData, encoding: NSUTF8StringEncoding))
-                    UdacityStudent.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
-                }
+            
+            guard let data = data else {
+                completionHandler(result: nil, error: NSError(domain: "UdacityStudent.taskForPOSTMethod", code: 2, userInfo: [NSLocalizedDescriptionKey: "No data was returned by the request!"]))
+                return
+            }
+      
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            UdacityStudent.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+            
             
             
         }
@@ -74,6 +78,49 @@ class UdacityStudent : NSObject {
         return task
         
     }
+    
+    
+    func taskForGETMethod(method: String, completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        let urlString = Constants.BaseURL + method
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                completionHandler(result: nil, error: error)
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var errorMessage: String
+                if let response = response as? NSHTTPURLResponse {
+                    errorMessage = "Your request returned an invalid response! Status code: \(response.statusCode)!"
+                } else if let response = response {
+                    errorMessage = "Your request returned an invalid response! Response: \(response)!"
+                } else {
+                    errorMessage = "Your request returned an invalid response!"
+                }
+                completionHandler(result: nil, error: NSError(domain: "UdacityStudent.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                completionHandler(result: nil, error: NSError(domain: "UdacityStudent.taskForGETMethod", code: 2, userInfo: [NSLocalizedDescriptionKey: "No data was returned by the request!"]))
+                return
+            }
+            
+            UdacityStudent.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+        }
+        
+        task.resume()
+        return task
+    }
+
     
     func taskForDeleteMethod(method: String, completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
     
@@ -107,7 +154,7 @@ class UdacityStudent : NSObject {
                 } else {
                     errorMessage = "Your request returned an invalid response!"
                 }
-                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                completionHandler(result: nil, error: NSError(domain: "UdacityStudent.taskForDeleteMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
 
@@ -163,5 +210,13 @@ class UdacityStudent : NSObject {
             static var sharedInstance = UdacityStudent()
         }
         return Singleton.sharedInstance
+    }
+    
+    class func subtituteKey(method: String, key: String, value: String) -> String? {
+        if method.rangeOfString("<\(key)>") != nil {
+            return method.stringByReplacingOccurrencesOfString("<\(key)>", withString: value)
+        } else {
+            return nil
+        }
     }
 }

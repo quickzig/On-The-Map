@@ -18,10 +18,13 @@ extension UdacityStudent {
 
     struct Methods {
         
-        // MARK: Account
         static let Session = "session"
-        static let StudentLocation = "StudentLocation"
+        static let UsersUserKey = "users/<user_key>"
         
+    }
+    
+    struct URLKeys {
+        static let UserKey = "user_key"
     }
     
     struct JSONBodyKeys {
@@ -42,6 +45,10 @@ extension UdacityStudent {
         static let SessionID = "id"
         static let Account = "account"
         static let UserKey = "key"
+        
+        static let User = "user"
+        static let FirstName = "first_name"
+        static let LastName = "last_name"
       
     }
 

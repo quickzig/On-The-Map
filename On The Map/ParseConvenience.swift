@@ -36,8 +36,6 @@ extension ParseUser {
     
     func postStudentLocations(jsonBody: [String:AnyObject], completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
         
-       
-
         
         taskForPOSTMethod(Methods.StudentLocation, jsonBody: jsonBody) { JSONResult, error in
             

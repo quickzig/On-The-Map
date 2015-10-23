@@ -9,6 +9,26 @@
 struct UdacityUser {
     
     var userKey: String?  = nil
+    
+    var firstName: String? = nil
+    var lastName: String? = nil
+    
+    var fullName: String {
+        get {
+            if firstName != nil && lastName != nil {
+                return firstName! + " " + lastName!
+            } else {
+                return ""
+            }
+        }
+    }
+    
+    init() {
+        firstName = ""
+        lastName = ""
+        userKey = ""
+    }
+
 }
 
 

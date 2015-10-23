@@ -99,7 +99,17 @@ extension UdacityStudent {
                 completionHandler(success: false, errorString: errorString)
                 return
             }
-            completionHandler(success: true,  errorString: nil)            
+            
+            self.getUserData(self.user.userKey!) { (success, error) in
+                if success {
+                completionHandler(success: success,  errorString: nil)
+                } else {
+                completionHandler(success: success, errorString: error)
+                }
+           }
+
+            
+            
         }
     }
 
@@ -114,5 +124,32 @@ extension UdacityStudent {
             completionHandler(success: true,  errorString: nil)
         }
     }
+    
+    
+    func getUserData(userKey: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+        
+        var mutableMethod = Methods.UsersUserKey
+        mutableMethod = UdacityStudent.subtituteKey(mutableMethod, key: URLKeys.UserKey, value: self.user.userKey!)!
+        
+        taskForGETMethod(mutableMethod) { JSONResult, error in
+            
+            guard (error == nil) else {
+                completionHandler(success: false, errorString: error!.description)
+
+                return
+            }
+
+           
+            if let userDictionary = JSONResult[JSONResponseKeys.User] as? [String:AnyObject] {
+                self.user.firstName = userDictionary[JSONResponseKeys.FirstName] as? String
+                    self.user.lastName = userDictionary[JSONResponseKeys.LastName] as? String
+                    completionHandler(success: true, errorString: nil)
+                } else {
+                    completionHandler(success: false, errorString: "User Not Found")
+                }
+            
+        }
+    }
+
 
 }

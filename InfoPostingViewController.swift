@@ -28,9 +28,28 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var bottomView: UIView!
+  
+    var placemark: CLPlacemark!
     
     @IBAction func cancelButtonClick(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func submitButtonClick(sender: UIButton) {
+        let coords = self.placemark.location!.coordinate
+        
+        let jsonBody: [String:AnyObject] = [
+        
+            ParseUser.JSONResponseKeys.StudentLocationMapString: self.locationText.text,
+            ParseUser.JSONResponseKeys.StudentLocationFirstName: UdacityStudent.sharedInstance().user.firstName!,
+            ParseUser.JSONResponseKeys.StudentLocationLastName: UdacityStudent.sharedInstance().user.lastName!,
+            ParseUser.JSONResponseKeys.StudentLocationMediaURL: self.mediaText.text,
+            ParseUser.JSONResponseKeys.StudentLocationLatitude: Float(coords.latitude),
+            ParseUser.JSONResponseKeys.StudentLocationLongitude: Float(coords.longitude),
+            ParseUser.JSONResponseKeys.StudentLocationUniqueKey: UdacityStudent.sharedInstance().user.userKey!
+        ]
+        
     }
     
     @IBAction func findOnMapButtonClick(sender: UIButton) {
