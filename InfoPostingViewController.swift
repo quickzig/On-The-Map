@@ -53,7 +53,8 @@ class InfoPostingViewController: UIViewController {
     
             ParseUser.sharedInstance().postStudentLocation(jsonBody) { success, error in
                 guard (success == true) else {
-                
+                    self.displayError("Location Not Posted", error: error?.description)
+                    return
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
