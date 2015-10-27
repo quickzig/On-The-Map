@@ -68,10 +68,9 @@ class ParseUser : NSObject {
     
     
     func taskForPOSTMethod(method: String, jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
-        let user  = UdacityUser()
-        let urlString = Constants.ParseURL + method + "/\(user.userKey)"
-        
+        let urlString = Constants.ParseURL + method
         let url = NSURL(string: urlString)!
+        
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -101,7 +100,7 @@ class ParseUser : NSObject {
                 } else {
                     errorMessage = "Your request returned an invalid response!"
                 }
-                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForPOSTMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
             

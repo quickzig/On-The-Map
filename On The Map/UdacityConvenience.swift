@@ -105,7 +105,7 @@ extension UdacityStudent {
                 completionHandler(success: success,  errorString: nil)
                 } else {
                 completionHandler(success: success, errorString: error)
-                }
+               }
             }
         }
     }
@@ -140,7 +140,7 @@ extension UdacityStudent {
                 completionHandler(success: true, errorString: nil)
             } else {
                 completionHandler(success: false, errorString: "User Not Found")
-            }
+             }
         }
     }
 

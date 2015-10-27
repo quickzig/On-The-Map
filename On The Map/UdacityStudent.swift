@@ -114,7 +114,9 @@ class UdacityStudent : NSObject {
                 return
             }
             
-            UdacityStudent.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            UdacityStudent.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
         }
         
         task.resume()

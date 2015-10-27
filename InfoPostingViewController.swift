@@ -40,7 +40,7 @@ class InfoPostingViewController: UIViewController {
         let coords = self.placemark.location!.coordinate
         
         let jsonBody: [String:AnyObject] = [
-        
+    
             ParseUser.JSONResponseKeys.StudentLocationMapString: self.locationText.text,
             ParseUser.JSONResponseKeys.StudentLocationFirstName: UdacityStudent.sharedInstance().user.firstName!,
             ParseUser.JSONResponseKeys.StudentLocationLastName: UdacityStudent.sharedInstance().user.lastName!,
@@ -92,24 +92,25 @@ class InfoPostingViewController: UIViewController {
                     return
                 }
                 
-                if let placemark = results?.first {
-                    let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                    self.placemark = results?.first
+                    let coordinates:CLLocationCoordinate2D = self.placemark.location!.coordinate
                     print("Lat: " + String(coordinates.latitude))
                     print("Log: " + String(coordinates.longitude))
-                    
+                
+                                      
                     var annotations = [MKPointAnnotation]()
                     
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinates
-                      annotations.append(annotation)
+                    annotations.append(annotation)
                     self.showMap()
-
-                     self.locationMapView.addAnnotations(annotations)
+                    
+                    self.locationMapView.addAnnotations(annotations)
                     
                     let region = MKCoordinateRegionMakeWithDistance(coordinates, 2000, 2000)
                     self.locationMapView.setRegion(region, animated: true)
-
-                }
+                    
+                
             })
             
            
