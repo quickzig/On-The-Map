@@ -167,7 +167,7 @@
                                     <action selector="signUpClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5K-Ce-sj7"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="in1-eh-Auw">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="in1-eh-Auw">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <animations/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -295,10 +295,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o4G-UE-iK0">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                            </mapView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="muY-Qh-pZq">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <animations/>
@@ -306,6 +302,10 @@
                                     <rect key="frame" x="182" y="281" width="37" height="37"/>
                                 </variation>
                             </activityIndicatorView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o4G-UE-iK0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,8 +317,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="o4G-UE-iK0"/>
                                 <exclude reference="muY-Qh-pZq"/>
+                                <exclude reference="o4G-UE-iK0"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="xm8-m0-ydt"/>
@@ -329,8 +329,8 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="o4G-UE-iK0"/>
                                 <include reference="muY-Qh-pZq"/>
+                                <include reference="o4G-UE-iK0"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="xm8-m0-ydt"/>
@@ -371,7 +371,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1H0-2L-07c" id="zJq-Dd-MWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>

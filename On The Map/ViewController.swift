@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showActivityIndicator(false)
+       
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -45,11 +45,13 @@ class ViewController: UIViewController {
 
         
         UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
+            
             if success {
+                self.showActivityIndicator(false)
                 self.completeLogin()
             } else {
-                self.displayError("Login Failed", error: "Unable to log into Udacity")
                 self.showActivityIndicator(false)
+                self.displayError("Login Failed", error: "Unable to log into Udacity")
 
             }
         }
@@ -97,13 +99,18 @@ class ViewController: UIViewController {
     func showActivityIndicator(enabled: Bool) {
         if enabled {
             UIView.animateWithDuration(1.0) {
-                self.activityIndicator.alpha = 1
+               // self.activityIndicator.alpha = 1
             }
             self.activityIndicator.startAnimating()
         } else {
-            self.activityIndicator.alpha = 0
+            //self.activityIndicator.alpha = 0
             self.activityIndicator.stopAnimating()
+
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+         showActivityIndicator(false)
     }
 
     
