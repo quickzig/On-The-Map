@@ -13,11 +13,13 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
    
     var studentLocations = [ParseStudentLocation]()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showActivityIndicator(true)
         mapView.delegate = self
     
         // Do any additional setup after loading the view, typically from a nib.
@@ -53,6 +55,7 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
                 }
                 
                 // When the array is complete, we add the annotations to the map.
+                
                 self.mapView.addAnnotations(annotations)
             }
         }
@@ -82,8 +85,9 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
         else {
             pinView!.annotation = annotation
         }
-        
+        self.showActivityIndicator(false)
         return pinView
+        
     }
     
     
@@ -95,6 +99,19 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
             }
         }
     }
+    
+    func showActivityIndicator(enabled: Bool) {
+        if enabled {
+            UIView.animateWithDuration(1.0) {
+                self.activityIndicator.alpha = 1
+            }
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.alpha = 0
+            self.activityIndicator.stopAnimating()
+        }
+    }
+
 
     
 }

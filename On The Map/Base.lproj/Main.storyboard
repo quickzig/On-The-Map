@@ -167,6 +167,13 @@
                                     <action selector="signUpClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5K-Ce-sj7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="in1-eh-Auw">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <animations/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="281" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -202,6 +209,7 @@
                                 <exclude reference="MqO-Im-fsG"/>
                                 <exclude reference="xiE-TW-rk8"/>
                                 <exclude reference="CDN-1h-kCa"/>
+                                <exclude reference="in1-eh-Auw"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1L9-SP-OrL"/>
@@ -236,6 +244,7 @@
                                 <include reference="MqO-Im-fsG"/>
                                 <include reference="xiE-TW-rk8"/>
                                 <include reference="CDN-1h-kCa"/>
+                                <include reference="in1-eh-Auw"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="1L9-SP-OrL"/>
@@ -263,6 +272,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="in1-eh-Auw" id="zcq-xT-cS9"/>
                         <outlet property="emailText" destination="xiE-TW-rk8" id="D1N-AF-C7Z"/>
                         <outlet property="loginButton" destination="0lq-Jb-mcr" id="vpN-5R-xeu"/>
                         <outlet property="passwordText" destination="wab-Nx-hYc" id="hi1-AH-cs7"/>
@@ -289,6 +299,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="muY-Qh-pZq">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <animations/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="281" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,6 +318,7 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="o4G-UE-iK0"/>
+                                <exclude reference="muY-Qh-pZq"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="xm8-m0-ydt"/>
@@ -312,6 +330,7 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="o4G-UE-iK0"/>
+                                <include reference="muY-Qh-pZq"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="xm8-m0-ydt"/>
@@ -323,6 +342,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" id="ToC-Fp-ueI"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="muY-Qh-pZq" id="WHP-Nk-K6e"/>
                         <outlet property="mapView" destination="o4G-UE-iK0" id="oeL-RU-Ct7"/>
                     </connections>
                 </viewController>
@@ -351,7 +371,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1H0-2L-07c" id="zJq-Dd-MWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -513,7 +533,7 @@
                                             <action selector="cancelButtonClick:" destination="fST-fg-Ayy" eventType="touchUpInside" id="HcO-bx-cdd"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a Link to Share Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5t7-LA-OJp">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5t7-LA-OJp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -592,6 +612,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jkB-ak-JJJ">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <animations/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="281" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -601,6 +628,7 @@
                                 <exclude reference="zXJ-QP-8Ll"/>
                                 <exclude reference="TBv-6a-FE7"/>
                                 <exclude reference="7rM-E8-NwT"/>
+                                <exclude reference="jkB-ak-JJJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -609,10 +637,12 @@
                                 <include reference="zXJ-QP-8Ll"/>
                                 <include reference="TBv-6a-FE7"/>
                                 <include reference="7rM-E8-NwT"/>
+                                <include reference="jkB-ak-JJJ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jkB-ak-JJJ" id="qdd-AY-GBs"/>
                         <outlet property="bottomView" destination="7rM-E8-NwT" id="s7z-uH-vyE"/>
                         <outlet property="cancelButton" destination="9K2-Pb-Vtv" id="J7A-Ww-OaE"/>
                         <outlet property="findOnMapButton" destination="m6w-an-OK3" id="f9d-e2-ff6"/>

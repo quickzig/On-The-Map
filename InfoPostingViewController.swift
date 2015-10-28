@@ -29,6 +29,7 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var bottomView: UIView!
   
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var placemark: CLPlacemark!
     
     @IBAction func cancelButtonClick(sender: UIButton) {
@@ -37,6 +38,23 @@ class InfoPostingViewController: UIViewController {
     
     
     @IBAction func submitButtonClick(sender: UIButton) {
+        
+        
+        guard (mediaText.text != "") else {
+            self.displayError("Link is Empty", error: "Must Enter a Link.")
+            return
+        }
+        
+        
+        self.showActivityIndicator(true)
+        
+        var mediaLocation = mediaText.text
+        
+        if mediaLocation.containsString("http://") == false || mediaLocation.containsString("https://") == false {
+            mediaLocation = "http://" + mediaText.text
+            
+        }
+        
         let coords = self.placemark.location!.coordinate
         
         let jsonBody: [String:AnyObject] = [
@@ -44,7 +62,7 @@ class InfoPostingViewController: UIViewController {
             ParseUser.JSONResponseKeys.StudentLocationMapString: self.locationText.text,
             ParseUser.JSONResponseKeys.StudentLocationFirstName: UdacityStudent.sharedInstance().user.firstName!,
             ParseUser.JSONResponseKeys.StudentLocationLastName: UdacityStudent.sharedInstance().user.lastName!,
-            ParseUser.JSONResponseKeys.StudentLocationMediaURL: self.mediaText.text,
+            ParseUser.JSONResponseKeys.StudentLocationMediaURL: mediaLocation,
             ParseUser.JSONResponseKeys.StudentLocationLatitude: Float(coords.latitude),
             ParseUser.JSONResponseKeys.StudentLocationLongitude: Float(coords.longitude),
             ParseUser.JSONResponseKeys.StudentLocationUniqueKey: UdacityStudent.sharedInstance().user.userKey!
@@ -54,40 +72,36 @@ class InfoPostingViewController: UIViewController {
             ParseUser.sharedInstance().postStudentLocation(jsonBody) { success, error in
                 guard (success == true) else {
                     self.displayError("Location Not Posted", error: error?.description)
+                    self.showActivityIndicator(false)
                     return
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.dismissViewControllerAnimated(true, completion: nil)
-                }
-               
+                }               
         }
-        
-    
-    
-    
-        
-        
     }
     
     @IBAction func findOnMapButtonClick(sender: UIButton) {
+        showActivityIndicator(true)
         
         guard (locationText.text != "") else {
             self.displayError("Location Empty", error: "Must Enter a Location.")
             return
         }
+        
         let geoCoder = CLGeocoder()
         do {
-            
-          
             
             geoCoder.geocodeAddressString(locationText.text, completionHandler: { (results, error) -> Void in
                 
                 guard (error == nil) else {
+                    self.showActivityIndicator(false)
                     self.displayError("Location Not Found", error: "Could Not Geocode the String.")
                     return
                 }
                 guard (results!.isEmpty == false) else {
+                    self.showActivityIndicator(false)
                     self.displayError("Location Not Found", error: "No Address Found.")
                     return
                 }
@@ -103,6 +117,8 @@ class InfoPostingViewController: UIViewController {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinates
                     annotations.append(annotation)
+                
+                 self.showActivityIndicator(false)
                     self.showMap()
                     
                     self.locationMapView.addAnnotations(annotations)
@@ -124,6 +140,9 @@ class InfoPostingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        locationText.placeholder = "Enter Your Location Here"
+        mediaText.placeholder = "Enter a Link to Share Here"
+         self.showActivityIndicator(false)
         hideMap()
     }
     
@@ -181,7 +200,22 @@ class InfoPostingViewController: UIViewController {
         self.topView.backgroundColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1.0)
         self.mediaText.hidden = true
     }
+    
+    func showActivityIndicator(enabled: Bool) {
+        if enabled {
+            UIView.animateWithDuration(1.0) {
+                self.activityIndicator.alpha = 1
+            }
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.alpha = 0
+            self.activityIndicator.stopAnimating()
+        }
+    }
+
 
     
 }
+
+
 

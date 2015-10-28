@@ -17,10 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showActivityIndicator(false)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -39,11 +41,16 @@ class ViewController: UIViewController {
             return
         }
         
+        showActivityIndicator(true)
+
+        
         UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
             if success {
                 self.completeLogin()
             } else {
                 self.displayError("Login Failed", error: "Unable to log into Udacity")
+                self.showActivityIndicator(false)
+
             }
         }
         
@@ -86,6 +93,19 @@ class ViewController: UIViewController {
         let networkStatus: Int = reachability.currentReachabilityStatus().rawValue
         return networkStatus != 0
     }
+    
+    func showActivityIndicator(enabled: Bool) {
+        if enabled {
+            UIView.animateWithDuration(1.0) {
+                self.activityIndicator.alpha = 1
+            }
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.alpha = 0
+            self.activityIndicator.stopAnimating()
+        }
+    }
+
     
   
 }
