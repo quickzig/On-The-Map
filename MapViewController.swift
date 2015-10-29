@@ -19,9 +19,25 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let addStudentLocationButton = UIButton()
+        addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
+        addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
+        addStudentLocationButton.frame = CGRectMake(0, 0, 36, 36)
+        let addStudentLocationButtonItem = UIBarButtonItem(customView: addStudentLocationButton)
+        let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "loadData")
+        self.parentViewController!.navigationItem.rightBarButtonItems = [refreshButtonItem, addStudentLocationButtonItem]
+
         showActivityIndicator(true)
         mapView.delegate = self
     
+        loadData()
+        
+    }
+    
+    func loadData(){
+        
+        showActivityIndicator(true)
         // Do any additional setup after loading the view, typically from a nib.
         ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
             if let studentLocations = studentLocations {
@@ -59,11 +75,9 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
                 self.mapView.addAnnotations(annotations)
             }
         }
-
+        showActivityIndicator(false)
         
     }
-    
-    
     
     
     
@@ -110,6 +124,16 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
             self.activityIndicator.alpha = 0
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    func goToAddStudentLocation() {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AddStudentController")
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
+        
+        
     }
 
 

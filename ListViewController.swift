@@ -18,26 +18,31 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let addStudentLocationButton = UIButton()
+        addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
+        addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
+        addStudentLocationButton.frame = CGRectMake(0, 0, 36, 36)
+        let addStudentLocationButtonItem = UIBarButtonItem(customView: addStudentLocationButton)
+        let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "loadData")
+        self.parentViewController!.navigationItem.rightBarButtonItems = [refreshButtonItem, addStudentLocationButtonItem]
+
         self.studentsTableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0);
         
         studentsTableView.dataSource = self
         studentsTableView.delegate = self
+        loadData()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+
+    func loadData(){
         ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 dispatch_async(dispatch_get_main_queue()) {
-                    
                     self.studentsTableView.reloadData()
                 }
             }
         }
-        
     }
-
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -67,6 +72,16 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
+    }
+    
+    func goToAddStudentLocation() {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AddStudentController")
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
+        
+        
     }
 
 
