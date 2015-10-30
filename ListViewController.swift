@@ -18,6 +18,9 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //studentsTableView.rowHeight = 45
+        studentsTableView.separatorColor = UIColor.grayColor()  
+        
         let addStudentLocationButton = UIButton()
         addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
         addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
@@ -50,11 +53,13 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
         let cellReuseIdentifier = "StudentLocationCell"
         //let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
-        
         let student = self.studentLocations[indexPath.row]
         cell.textLabel!.text =  "\(student.firstName as String!) \(student.lastName as String!)"
         cell.imageView!.image = UIImage(named: "pin")
-        cell.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        cell.detailTextLabel!.text = student.mediaURL
+        cell.detailTextLabel!.textColor = UIColor.grayColor()
+        //cell.imageView!.contentMode = UIViewContentMode.ScaleAspectFill
+        
 
         
         return cell
@@ -70,9 +75,7 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
         app.openURL(NSURL(string: url)!)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
-    }
+    
     
     func goToAddStudentLocation() {
         
