@@ -12,7 +12,11 @@ import MapKit
 import CoreLocation
 
 
-class InfoPostingViewController: UIViewController {
+class InfoPostingViewController: UIViewController, UITextViewDelegate{
+    
+    let mediaPlaceholder = "Enter a Link to Share Here"
+    let locationPlaceholder = "Enter Your Location Here"
+    
     
     @IBOutlet weak var locationText: UITextView!
     @IBOutlet weak var findOnMapButton: UIButton!
@@ -35,6 +39,7 @@ class InfoPostingViewController: UIViewController {
     @IBAction func cancelButtonClick(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     
     @IBAction func submitButtonClick(sender: UIButton) {
@@ -140,8 +145,25 @@ class InfoPostingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        locationText.placeholder = "Enter Your Location Here"
-        mediaText.placeholder = "Enter a Link to Share Here"
+        
+        locationText.text = locationPlaceholder
+        mediaText.text = mediaPlaceholder
+        
+        mediaText.textColor = UIColor.lightGrayColor()
+        locationText.textColor = UIColor.lightGrayColor()
+        
+        locationText.delegate = self
+        mediaText.delegate = self
+        if (locationText.text == "") {
+            textViewDidEndEditing(locationText)
+        }
+        if (mediaText.text == "") {
+            textViewDidEndEditing(mediaText)
+        }
+        //var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //self.view.addGestureRecognizer(tapDismiss)
+
+        
          self.showActivityIndicator(false)
         hideMap()
     }
@@ -212,8 +234,40 @@ class InfoPostingViewController: UIViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-
-
+    
+    
+    
+    
+    func dismissKeyboard(){
+        locationText.resignFirstResponder()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if (textView.text == "") {
+            if (textView == mediaText ){
+                textView.text = mediaPlaceholder
+            }
+            if (textView == locationText){
+                textView.text = locationPlaceholder
+            }
+        
+            textView.textColor = UIColor.lightGrayColor()
+        }
+        textView.resignFirstResponder()
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView){
+        if (textView.text == locationPlaceholder || textView.text == mediaPlaceholder){
+            textView.text = ""
+            textView.textColor = UIColor.whiteColor()
+        }
+        textView.becomeFirstResponder()
+    }
     
 }
 
