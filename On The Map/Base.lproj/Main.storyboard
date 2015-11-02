@@ -521,7 +521,7 @@
                                     <constraint firstItem="36T-06-2nW" firstAttribute="leading" secondItem="zXJ-QP-8Ll" secondAttribute="leadingMargin" id="Dd6-Xh-SPM"/>
                                     <constraint firstItem="jkB-ak-JJJ" firstAttribute="centerY" secondItem="zXJ-QP-8Ll" secondAttribute="centerY" id="H2g-BQ-bga"/>
                                     <constraint firstItem="36T-06-2nW" firstAttribute="centerX" secondItem="jkB-ak-JJJ" secondAttribute="centerX" id="WtV-4d-Cm1"/>
-                                    <constraint firstAttribute="bottom" secondItem="36T-06-2nW" secondAttribute="bottom" constant="-6" id="cSB-ux-Poo"/>
+                                    <constraint firstAttribute="bottom" secondItem="36T-06-2nW" secondAttribute="bottom" id="cSB-ux-Poo"/>
                                     <constraint firstItem="36T-06-2nW" firstAttribute="top" secondItem="zXJ-QP-8Ll" secondAttribute="top" id="ymN-3z-EJs"/>
                                 </constraints>
                                 <variation key="default">
@@ -803,7 +803,8 @@
                                         <exclude reference="i5r-qA-0NK"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="3" y="489" width="400" height="111"/>
                                     <mask key="subviews">
                                         <include reference="AOg-Nz-p0O"/>
                                         <include reference="m6w-an-OK3"/>
