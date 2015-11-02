@@ -218,8 +218,10 @@ class InfoPostingViewController: UIViewController, UITextViewDelegate{
         self.findOnMapButton.alpha = 1
         self.submitButton.alpha = 0
        
-         self.bottomView.backgroundColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1.0)
-        self.topView.backgroundColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1.0)
+        self.bottomView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
+        self.topView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
+
+    
         self.mediaText.hidden = true
     }
     
