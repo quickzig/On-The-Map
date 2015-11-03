@@ -19,6 +19,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var keyboardHidden = true
+    let shake = CAKeyframeAnimation( keyPath:"transform" )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,17 +61,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 self.showActivityIndicator(true)
                 self.completeLogin()
             } else {
-                let animation = CABasicAnimation(keyPath: "position")
-                animation.duration = 0.07
-                animation.repeatCount = 4
-                animation.autoreverses = true
-                animation.fromValue = NSValue(CGPoint: CGPointMake(self.loginButton.center.x - 10, self.loginButton.center.y))
-                animation.toValue = NSValue(CGPoint: CGPointMake(self.loginButton.center.x + 10, self.loginButton.center.y))
-                self.loginButton.layer.addAnimation(animation, forKey: "position")
-
-                
-               // self.displayError("Login Failed", error: "Unable to log into Udacity")
-               
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.loginButton.layer.addAnimation( self.shake, forKey:nil )
+                }
             }
         }
     }
