@@ -9,18 +9,14 @@
 import Foundation
 
 extension ParseUser {
-
     
+    ///Call the menthod to get student locations
     func getStudentLocations(completionHandler: (result: [ParseStudentLocation]?, error: NSError?) -> Void){
-        
         let parameters: [String: AnyObject] = [ParseUser.ParameterKeys.Limit : ParseUser.Constants.Limit, ParseUser.ParameterKeys.Order: ParseUser.Constants.RecentlyUpdated]
-        
         taskForGETMethod(Methods.StudentLocation, queryString: nil, parameters: parameters) { JSONResult, error in
-            
             if let error = error {
                 completionHandler(result: nil, error: error)
             } else {
-                
                 if let results = JSONResult.valueForKey(JSONResponseKeys.Results) as? [[String: AnyObject]] {
                     let studentLocations = ParseStudentLocation.studentLocationsFromResults(results)
                     completionHandler(result: studentLocations, error: nil)
@@ -28,14 +24,12 @@ extension ParseUser {
                     completionHandler(result: nil, error: NSError(domain: Methods.StudentLocation, code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not get student locations"]))
                 }
             }
-            // completionHandler(result: nil,error: nil)
         }
     }
     
-    
+    /// Call the method that posts a student's location
     func postStudentLocation(jsonBody: [String:AnyObject], completionHandler: (success: Bool , error: NSError?) -> Void){
         taskForPOSTMethod(Methods.StudentLocation, jsonBody: jsonBody) { JSONResult, error in
-            
             if let error = error {
                 completionHandler(success: false, error: error)
             } else {
@@ -43,5 +37,4 @@ extension ParseUser {
             }
         }
     }
-
 }

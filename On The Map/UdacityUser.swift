@@ -9,17 +9,14 @@
 struct UdacityUser {
     
     var userKey: String?  = nil
-    
     var firstName: String? = nil
     var lastName: String? = nil
     
-       
     init() {
         firstName = ""
         lastName = ""
         userKey = ""
     }
-
 }
 
 

@@ -34,7 +34,6 @@
 		F5F119871BB9A2A7001EC23F /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */; };
 		F5F9BA801BC19D94009097DB /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F9BA7F1BC19D94009097DB /* UdacityConstants.swift */; };
 		F5F9BA821BC19E32009097DB /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F9BA811BC19E32009097DB /* UdacityStudent.swift */; };
-		F5FA37AA1BE04DEA007ABEED /* TextViewPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA37A91BE04DEA007ABEED /* TextViewPlaceHolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		F5F119851BB9A2A7001EC23F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		F5F9BA7F1BC19D94009097DB /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		F5F9BA811BC19E32009097DB /* UdacityStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
-		F5FA37A91BE04DEA007ABEED /* TextViewPlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewPlaceHolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +127,6 @@
 		F56C269A1BBEE064000FC577 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F5FA37A91BE04DEA007ABEED /* TextViewPlaceHolder.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -401,7 +398,6 @@
 				F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */,
 				F5C698CF1BCAE00B00FC69E6 /* ParseConstants.swift in Sources */,
 				F5C698D31BCAE10200FC69E6 /* ParseConvenience.swift in Sources */,
-				F5FA37AA1BE04DEA007ABEED /* TextViewPlaceHolder.swift in Sources */,
 				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,
 				F5C698D51BCAE9A600FC69E6 /* ParseStudentLocation.swift in Sources */,
 				F52FFBBB1BCFFCF3006C1C55 /* MainTabBarViewController.swift in Sources */,

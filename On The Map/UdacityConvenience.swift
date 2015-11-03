@@ -10,27 +10,22 @@ import UIKit
 import Foundation
 
 extension UdacityStudent {
-
     
+    ///Get the session ID for the user
     func getSessionID(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
-        
-        
         let jsonBody : [String:AnyObject] = [
             JSONBodyKeys.UdacityCredentials: [
                 JSONBodyKeys.Username : username,
                 JSONBodyKeys.Password : password
             ]
         ]
-        
+    
         taskForPOSTMethod(Methods.Session, jsonBody: jsonBody) { JSONResult, error in
             
-            /* 3. Send the desired value(s) to completion handler */
             guard (error == nil) else {
-                print(error)
                 completionHandler(success: false, errorString: error!.description)
                 return
             }
-            
             //Get account key info
             if let accountDictionary = JSONResult[JSONResponseKeys.Account] as? NSDictionary {
                 if let userKey = accountDictionary[JSONResponseKeys.UserKey] as? String {
@@ -41,7 +36,6 @@ extension UdacityStudent {
             } else {
                 print("Could not find \(JSONResponseKeys.Account) in \(JSONResult)")
             }
-            
             //Get session Info
             if let sessionDictionary = JSONResult[JSONResponseKeys.Session] as? NSDictionary {
                 if let sessionID = sessionDictionary[JSONResponseKeys.SessionID] as? String {
@@ -52,7 +46,6 @@ extension UdacityStudent {
             } else {
                 print("Could not find \(JSONResponseKeys.Session) in \(JSONResult)")
             }
-            
             
             if self.user.userKey != nil && self.sessionID != nil {
                 completionHandler(success: true,  errorString: nil)
@@ -60,46 +53,37 @@ extension UdacityStudent {
             {
                 completionHandler(success: false, errorString: "Invalid credentials")
             }
-            
         }
-        
     }
     
+    ///Delete the user's session info
     func deleteSession(completionHandler: (success: Bool, errorString: String?) -> Void){
-       
         taskForDeleteMethod(Methods.Session) { JSONResult, error in
             guard (error == nil) else {
-                print(error)
                 completionHandler(success: false, errorString: error!.description)
                 return
             }
-            
             //Get session Info
             if let sessionDictionary = JSONResult[JSONResponseKeys.Session] as? NSDictionary {
                 if let sessionID = sessionDictionary[JSONResponseKeys.SessionID] as? String {
                     self.sessionID = sessionID
+                    completionHandler(success: true,  errorString: nil)
                 } else {
-                    print("Could not find \(JSONResponseKeys.SessionID) in \(sessionDictionary)")
-                     completionHandler(success: true,  errorString: nil)
+                     completionHandler(success: false,  errorString: nil)
                 }
             } else {
-                print("Could not find \(JSONResponseKeys.Session) in \(JSONResult)")
                 completionHandler(success: false, errorString: "Session Not Found")
             }
-            
         }
     }
     
-    
+    ///Authenticate the user
     func authenticateStudentWithUdacity(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
-        
         self.getSessionID(username, password: password) { (success, errorString) in
             guard (errorString == nil) else {
-                print(errorString)
                 completionHandler(success: false, errorString: errorString)
                 return
             }
-            
             self.getUserData(self.user.userKey!) { (success, error) in
                 if success {
                 completionHandler(success: success,  errorString: nil)
@@ -109,12 +93,12 @@ extension UdacityStudent {
             }
         }
     }
-
+    
+    ///Delete the user's authentication
     func deleteStudentSessionWithUdacity(completionHandler: (success: Bool, errorString: String?) -> Void) {
         
         self.deleteSession(){ (success, errorString) in
             guard (errorString == nil) else {
-                print(errorString)
                 completionHandler(success: false, errorString: errorString)
                 return
             }
@@ -122,9 +106,8 @@ extension UdacityStudent {
         }
     }
     
-    
+    ///Get user information from Udacity
     func getUserData(userKey: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
-        
         var mutableMethod = Methods.UsersUserKey
         mutableMethod = UdacityStudent.subtituteKey(mutableMethod, key: URLKeys.UserKey, value: self.user.userKey!)!
         
@@ -143,6 +126,4 @@ extension UdacityStudent {
              }
         }
     }
-
-
 }

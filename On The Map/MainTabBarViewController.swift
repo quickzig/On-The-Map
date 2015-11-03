@@ -17,38 +17,36 @@ class MainTabBarViewController: UITabBarController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-          }
-
-    
-    
     func configureUI() {
-        
         self.navigationItem.title = "On The Map"
-        
-        //let addStudentLocationButton = UIButton()
-       // addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
-       // addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
-       // addStudentLocationButton.frame = CGRectMake(0, 0, 36, 36)
-       // let addStudentLocationButtonItem = UIBarButtonItem(customView: addStudentLocationButton)
-        //let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: nil)
-       // self.navigationItem.rightBarButtonItems = [refreshButtonItem, addStudentLocationButtonItem]
-       
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logout")
+              self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logout")
     }
     
     func logout() {
-       // FacebookClient.sharedLoginManager().logOut()
-      //  UdacityClient.sharedInstance().logout { (success, error) -> Void in
-      //  }
-       
-        self.dismissViewControllerAnimated(true, completion: nil)
+        UdacityStudent.sharedInstance().deleteStudentSessionWithUdacity() { (success, errorString) in
+            if success {
+                dispatch_async(dispatch_get_main_queue(), {
+                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController")
+                    self.presentViewController(controller, animated: true, completion: nil)
+                })
+            } else {
+                self.displayError("Logout Failed", error: "Please Try Again Later")
+            }
+        }
     }
     
     
-
+    func displayError(title: String!, error: String!) {
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            let alertController: UIAlertController = UIAlertController(title: title, message: error, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        })
+    }
     
-
+    
 }
