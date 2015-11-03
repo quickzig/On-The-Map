@@ -54,12 +54,23 @@ class ViewController: UIViewController,UITextFieldDelegate {
             return
         }
     
-        showActivityIndicator(true)
+        
         UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
             if success {
+                self.showActivityIndicator(true)
                 self.completeLogin()
             } else {
-                self.displayError("Login Failed", error: "Unable to log into Udacity")
+                let animation = CABasicAnimation(keyPath: "position")
+                animation.duration = 0.07
+                animation.repeatCount = 4
+                animation.autoreverses = true
+                animation.fromValue = NSValue(CGPoint: CGPointMake(self.loginButton.center.x - 10, self.loginButton.center.y))
+                animation.toValue = NSValue(CGPoint: CGPointMake(self.loginButton.center.x + 10, self.loginButton.center.y))
+                self.loginButton.layer.addAnimation(animation, forKey: "position")
+
+                
+               // self.displayError("Login Failed", error: "Unable to log into Udacity")
+               
             }
         }
     }
@@ -157,5 +168,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
-  
+    
+    
 }
