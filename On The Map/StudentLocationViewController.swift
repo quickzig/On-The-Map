@@ -37,4 +37,12 @@ class StudentLocationViewController: UIViewController {
             self.presentViewController(alertController, animated: true, completion: nil)
         })
     }
+    
+    ///Check if there is internet connectivity
+    func hasConnectivity() -> Bool {
+        let reachability: Reachability = Reachability.reachabilityForInternetConnection()
+        let networkStatus: Int = reachability.currentReachabilityStatus().rawValue
+        return networkStatus != 0
+    }
+
 }

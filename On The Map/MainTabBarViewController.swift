@@ -23,6 +23,11 @@ class MainTabBarViewController: UITabBarController {
     }
     
     func logout() {
+        guard self.hasConnectivity() == true else
+        {
+            self.displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
+            return
+        }
         UdacityStudent.sharedInstance().deleteStudentSessionWithUdacity() { (success, errorString) in
             if success {
                 dispatch_async(dispatch_get_main_queue(), {
@@ -47,6 +52,14 @@ class MainTabBarViewController: UITabBarController {
             self.presentViewController(alertController, animated: true, completion: nil)
         })
     }
+    
+    ///Check if there is internet connectivity
+    func hasConnectivity() -> Bool {
+        let reachability: Reachability = Reachability.reachabilityForInternetConnection()
+        let networkStatus: Int = reachability.currentReachabilityStatus().rawValue
+        return networkStatus != 0
+    }
+
     
     
 }

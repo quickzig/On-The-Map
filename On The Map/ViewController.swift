@@ -61,7 +61,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.showActivityIndicator(false)
-                    self.shakeView()
+                    self.shakeView(self.emailText)
+                    self.shakeView(self.passwordText)
                     
                 }
                 
@@ -163,20 +164,20 @@ class ViewController: UIViewController,UITextFieldDelegate {
         return true;
     }
     
-    func shakeView(){
+    func shakeView(texfield: UITextField){
         let shake:CABasicAnimation = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2
         shake.autoreverses = true
         
-        let from_point:CGPoint = CGPointMake(self.loginButton.center.x - 5, self.loginButton.center.y)
+        let from_point:CGPoint = CGPointMake(texfield.center.x - 5, texfield.center.y)
         let from_value:NSValue = NSValue(CGPoint: from_point)
         
-        let to_point:CGPoint = CGPointMake(self.loginButton.center.x + 5, self.loginButton.center.y)
+        let to_point:CGPoint = CGPointMake(texfield.center.x + 5, texfield.center.y)
         let to_value:NSValue = NSValue(CGPoint: to_point)
         
         shake.fromValue = from_value
         shake.toValue = to_value
-        self.loginButton.layer.addAnimation(shake, forKey: "position")
+        texfield.layer.addAnimation(shake, forKey: "position")
     }
 }

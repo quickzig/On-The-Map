@@ -28,7 +28,17 @@ class ListViewController:  StudentLocationViewController, UITableViewDelegate, U
 
     ///Load the table data
     func loadData(){
+        guard self.hasConnectivity() == true else
+        {
+            self.displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
+            return
+        }
+        
         ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
+            guard (error == nil) else {
+                self.displayError("Error Getting Student Locations", error: error?.description)
+                return
+            }
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 dispatch_async(dispatch_get_main_queue()) {
@@ -36,7 +46,7 @@ class ListViewController:  StudentLocationViewController, UITableViewDelegate, U
                 }
             }
             else {
-                self.displayError("Data Load Failed", error: "Unable to load data. Please try again later")
+                self.displayError("Data Load Failed", error: "Unable to load data.")
             }
         }
     }

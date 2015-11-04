@@ -26,7 +26,17 @@ class MapViewController:  StudentLocationViewController, MKMapViewDelegate {
     }
     ///Load the data for the map
     func loadData(){
+        guard self.hasConnectivity() == true else
+        {
+            self.displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
+            return
+        }
+        
         ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
+            guard (error == nil) else {
+                self.displayError("Error Getting Student Locations", error: error?.description)
+                return
+            }
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 var annotations = [MKPointAnnotation]()
@@ -50,7 +60,7 @@ class MapViewController:  StudentLocationViewController, MKMapViewDelegate {
                 // Add the annotations to the map.
                 self.mapView.addAnnotations(annotations)
             } else {
-                self.displayError("Data Load Failed", error: "Unable to load data. Please try again later")
+                self.displayError("Data Load Failed", error: "Unable to load data.")
             }
             
         }
