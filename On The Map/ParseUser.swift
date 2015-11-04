@@ -26,18 +26,22 @@ class ParseUser : NSObject {
         request.addValue(Constants.RESTAPIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
+            var errorMessage: String
             guard (error == nil) else {
-                print("There was an error with your request: \(error)")
+                errorMessage = "There was an error with your request: \(error?.description)"
+                completionHandler(result: nil, error: NSError(domain: "ParseUser.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                
                 if let response = response as? NSHTTPURLResponse {
-                    print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                     errorMessage = "Your request returned an invalid response! Status code: \(response.statusCode)!"
                 } else if let response = response {
-                    print("Your request returned an invalid response! Response: \(response)!")
+                     errorMessage = "Your request returned an invalid response! Response: \(response)!"
                 } else {
-                    print("Your request returned an invalid response!")
+                     errorMessage = "Your request returned an invalid response!"
                 }
+                completionHandler(result: nil, error: NSError(domain: "ParseUser.taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
             guard let data = data else {
@@ -81,7 +85,7 @@ class ParseUser : NSObject {
                 } else {
                     errorMessage = "Your request returned an invalid response!"
                 }
-                completionHandler(result: nil, error: NSError(domain: "ParseClient.taskForPOSTMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
+                completionHandler(result: nil, error: NSError(domain: "ParseUser.taskForPOSTMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: errorMessage]))
                 return
             }
             if let data = data {

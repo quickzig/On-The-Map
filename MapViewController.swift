@@ -32,6 +32,7 @@ class MapViewController:  StudentLocationViewController, MKMapViewDelegate {
             return
         }
         
+        
         ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
             guard (error == nil) else {
                 self.displayError("Error Getting Student Locations", error: error?.description)
