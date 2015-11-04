@@ -9,23 +9,17 @@
 import UIKit
 import MapKit
 
-class MapViewController:  UIViewController, MKMapViewDelegate {
+class MapViewController:  StudentLocationViewController, MKMapViewDelegate {
    
-    var studentLocations = [ParseStudentLocation]()
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let addStudentLocationButton = UIButton()
-        addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
-        addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
-        addStudentLocationButton.frame = CGRectMake(0, 0, 36, 36)
-        let addStudentLocationButtonItem = UIBarButtonItem(customView: addStudentLocationButton)
-        let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "loadData")
-        self.parentViewController!.navigationItem.rightBarButtonItems = [refreshButtonItem, addStudentLocationButtonItem]
-
+        //Create buttons for navigation
+        setNavButtons()
+        
         mapView.delegate = self
         loadData()
     
@@ -39,7 +33,7 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
                 for dictionary in studentLocations {
                     let lat = CLLocationDegrees(dictionary.latitude)
                     let long = CLLocationDegrees(dictionary.longitude)
-                
+                    
                     let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                     let first = dictionary.firstName
                     let last = dictionary.lastName
@@ -52,12 +46,14 @@ class MapViewController:  UIViewController, MKMapViewDelegate {
                     annotation.subtitle = mediaURL
                     annotations.append(annotation)
                 }
-    
+                
                 // Add the annotations to the map.
                 self.mapView.addAnnotations(annotations)
+            } else {
+                self.displayError("Data Load Failed", error: "Unable to load data. Please try again later")
             }
+            
         }
-        
     }
     
 

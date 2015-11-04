@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var studentLocations: [ParseStudentLocation] = [ParseStudentLocation]()
+class ListViewController:  StudentLocationViewController, UITableViewDelegate, UITableViewDataSource {
+  
     
     @IBOutlet weak var studentsTableView: UITableView!
     
@@ -18,13 +18,7 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
         studentsTableView.separatorColor = UIColor.grayColor()
         
         //Create buttons for navigation
-        let addStudentLocationButton = UIButton()
-        addStudentLocationButton.setImage(UIImage(named: "pin"), forState: .Normal)
-        addStudentLocationButton.addTarget(self, action: "goToAddStudentLocation", forControlEvents: .TouchUpInside)
-        addStudentLocationButton.frame = CGRectMake(0, 0, 36, 36)
-        let addStudentLocationButtonItem = UIBarButtonItem(customView: addStudentLocationButton)
-        let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "loadData")
-        self.parentViewController!.navigationItem.rightBarButtonItems = [refreshButtonItem, addStudentLocationButtonItem]
+        setNavButtons()
         
         self.studentsTableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0);
         self.studentsTableView.dataSource = self
@@ -34,12 +28,15 @@ class ListViewController:  UIViewController, UITableViewDelegate, UITableViewDat
 
     ///Load the table data
     func loadData(){
-                ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
+        ParseUser.sharedInstance().getStudentLocations { studentLocations, error in
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 dispatch_async(dispatch_get_main_queue()) {
                     self.studentsTableView.reloadData()
                 }
+            }
+            else {
+                self.displayError("Data Load Failed", error: "Unable to load data. Please try again later")
             }
         }
     }

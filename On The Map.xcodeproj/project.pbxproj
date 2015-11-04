@@ -16,6 +16,7 @@
 		F56C26A21BBEEAB5000FC577 /* LocationMiddleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */; };
 		F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */; };
 		F56C26A61BBEEB49000FC577 /* LocationBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C26A51BBEEB49000FC577 /* LocationBottomViewController.swift */; };
+		F57192B21BE9951E00C122B1 /* StudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57192B11BE9951E00C122B1 /* StudentLocationViewController.swift */; };
 		F5AE4A781BC4A3BF00472BF5 /* UdacityUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4A771BC4A3BF00472BF5 /* UdacityUser.swift */; };
 		F5C698CF1BCAE00B00FC69E6 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C698CE1BCAE00B00FC69E6 /* ParseConstants.swift */; };
 		F5C698D11BCAE02900FC69E6 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C698D01BCAE02900FC69E6 /* ParseUser.swift */; };
@@ -65,6 +66,7 @@
 		F56C26A11BBEEAB5000FC577 /* LocationMiddleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationMiddleViewController.swift; sourceTree = "<group>"; };
 		F56C26A31BBEEAF7000FC577 /* LocationTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTopViewController.swift; sourceTree = "<group>"; };
 		F56C26A51BBEEB49000FC577 /* LocationBottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationBottomViewController.swift; sourceTree = "<group>"; };
+		F57192B11BE9951E00C122B1 /* StudentLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationViewController.swift; sourceTree = "<group>"; };
 		F5AE4A771BC4A3BF00472BF5 /* UdacityUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityUser.swift; sourceTree = "<group>"; };
 		F5C698CE1BCAE00B00FC69E6 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		F5C698D01BCAE02900FC69E6 /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				F52FFBBA1BCFFCF3006C1C55 /* MainTabBarViewController.swift */,
 				F5441C301BBA3CD700070B8F /* MapViewController.swift */,
 				F5441C2E1BBA375A00070B8F /* ListViewController.swift */,
+				F57192B11BE9951E00C122B1 /* StudentLocationViewController.swift */,
 				F56C26A01BBEEA77000FC577 /* Location */,
 			);
 			name = Controller;
@@ -396,6 +399,7 @@
 				F56C269F1BBEE7E2000FC577 /* LocationViewController.swift in Sources */,
 				F54006A71BBC371F009DBAB7 /* InfoPostingViewController.swift in Sources */,
 				F56C26A41BBEEAF7000FC577 /* LocationTopViewController.swift in Sources */,
+				F57192B21BE9951E00C122B1 /* StudentLocationViewController.swift in Sources */,
 				F5C698CF1BCAE00B00FC69E6 /* ParseConstants.swift in Sources */,
 				F5C698D31BCAE10200FC69E6 /* ParseConvenience.swift in Sources */,
 				F5441C311BBA3CD700070B8F /* MapViewController.swift in Sources */,

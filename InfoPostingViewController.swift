@@ -20,6 +20,9 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
     
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var mediaText: UITextField!
+   
+    @IBOutlet weak var mediaTestLinkButton: UIButton!
+
     
     @IBOutlet weak var findOnMapButton: UIButton!
     @IBOutlet weak var locationMapView: MKMapView!
@@ -45,9 +48,24 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
     
     
     
+    @IBAction func mediaTestButtonClick(sender: AnyObject) {
+        
+        
+        guard (mediaText.text != "") else {
+            
+            return
+        }
+        
+        let url = createURLString(mediaText.text!)
+        let app = UIApplication.sharedApplication()
+        app.openURL(NSURL(string: url)!)
+        
+    }
+   
+
+    
     @IBAction func submitButtonClick(sender: UIButton) {
-        
-        
+    
         guard (mediaText.text != "") else {
             self.displayError("Link is Empty", error: "Must Enter a Link.")
             return
@@ -56,13 +74,8 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
         
         self.showActivityIndicator(true)
         
-        var mediaLocation = mediaText.text
-        
-        if mediaLocation!.containsString("http://") == false || mediaLocation!.containsString("https://") == false {
-            mediaLocation = "http://" + mediaText.text!
-            
-        }
-        
+        let mediaLocation = createURLString(mediaText.text!)
+    
         let coords = self.placemark.location!.coordinate
         
         let jsonBody: [String:AnyObject] = [
@@ -70,7 +83,7 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
             ParseUser.JSONResponseKeys.StudentLocationMapString: self.locationText.text!,
             ParseUser.JSONResponseKeys.StudentLocationFirstName: UdacityStudent.sharedInstance().user.firstName!,
             ParseUser.JSONResponseKeys.StudentLocationLastName: UdacityStudent.sharedInstance().user.lastName!,
-            ParseUser.JSONResponseKeys.StudentLocationMediaURL: mediaLocation!,
+            ParseUser.JSONResponseKeys.StudentLocationMediaURL: mediaLocation,
             ParseUser.JSONResponseKeys.StudentLocationLatitude: Float(coords.latitude),
             ParseUser.JSONResponseKeys.StudentLocationLongitude: Float(coords.longitude),
             ParseUser.JSONResponseKeys.StudentLocationUniqueKey: UdacityStudent.sharedInstance().user.userKey!
@@ -172,6 +185,7 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
         self.topView.backgroundColor = UIColor(red: 0.310, green: 0.533, blue: 0.713, alpha: 1.0)
         self.cancelButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
         self.mediaText.hidden = false
+        self.mediaTestLinkButton.hidden = false
     }
     
     func hideMap(){
@@ -186,6 +200,7 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
         self.bottomView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
         self.topView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
         self.mediaText.hidden = true
+         self.mediaTestLinkButton.hidden = true
     }
     
     func showActivityIndicator(enabled: Bool) {
@@ -205,6 +220,16 @@ class InfoPostingViewController: UIViewController ,UITextFieldDelegate {
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    func createURLString(urlString: String)-> String {
+        
+       var mediaLocation = urlString
+        if mediaLocation.containsString("http://") == false || mediaLocation.containsString("https://") == false {
+            mediaLocation = "http://" + mediaText.text!
+        }
+        
+        return mediaLocation
     }
 }
 

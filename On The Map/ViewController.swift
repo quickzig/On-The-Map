@@ -19,7 +19,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var keyboardHidden = true
-    let shake = CAKeyframeAnimation( keyPath:"transform" )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,16 +53,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
             displayError("No Internet Connection Available", error: "Please confirm you have access to the internet.")
             return
         }
-    
         
+        self.showActivityIndicator(true)
         UdacityStudent.sharedInstance().authenticateStudentWithUdacity(emailText.text!, password: passwordText.text!) { (success, errorString) in
             if success {
-                self.showActivityIndicator(true)
                 self.completeLogin()
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.loginButton.layer.addAnimation( self.shake, forKey:nil )
+                    self.showActivityIndicator(false)
+                    self.shakeView()
+                    
                 }
+                
             }
         }
     }
@@ -162,5 +163,20 @@ class ViewController: UIViewController,UITextFieldDelegate {
         return true;
     }
     
-    
+    func shakeView(){
+        let shake:CABasicAnimation = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 2
+        shake.autoreverses = true
+        
+        let from_point:CGPoint = CGPointMake(self.loginButton.center.x - 5, self.loginButton.center.y)
+        let from_value:NSValue = NSValue(CGPoint: from_point)
+        
+        let to_point:CGPoint = CGPointMake(self.loginButton.center.x + 5, self.loginButton.center.y)
+        let to_value:NSValue = NSValue(CGPoint: to_point)
+        
+        shake.fromValue = from_value
+        shake.toValue = to_value
+        self.loginButton.layer.addAnimation(shake, forKey: "position")
+    }
 }
